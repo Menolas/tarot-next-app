@@ -1,0 +1,13 @@
+.main-header {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 900px) {
+  .main-header {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}

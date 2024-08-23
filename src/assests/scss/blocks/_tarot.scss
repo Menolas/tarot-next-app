@@ -1,0 +1,28 @@
+.tarot {
+  background-image: url("../img/hands-and-candles.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .tarot__cards-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tarot__info-block {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .tarot__result {
+    flex: 1 1 40%;
+    padding: 1rem;
+    border: $border;
+    border-radius: $border-radius;
+  }
+
+  .btn-try-again {
+    flex: 1 1 40%;
+    text-align: left;
+    font-size: 35px;
+  }
+}

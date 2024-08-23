@@ -2,7 +2,7 @@
 body {
   display: block;
   margin: 0;
-  font-weight: 200;
+  font-weight: $general-font-weight;
   color: $text-color;
   background-color: $dark;
 }
@@ -30,10 +30,6 @@ input:-internal-autofill-selected {
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
-}
-
-svg {
-  fill: $light-text;
 }
 
 //* {

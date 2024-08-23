@@ -1,0 +1,17 @@
+.btn {
+  color: $text-color;
+  font-weight: $general-font-weight;
+  background-color: transparent;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+}
+
+.btn-try-again {
+  padding: 2rem;
+  border: $border;
+  border-style: dashed;
+  background-image: url("../img/hand-with-cards.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}

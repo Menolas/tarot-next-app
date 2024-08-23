@@ -1,5 +1,14 @@
+import OfferBlock from "@/components/OfferBlock";
+import Tarot from "@/components/Tarot";
+import Login from "@/components/Login";
+
 export default function Home() {
   return (
-    <main className=""></main>
+    <>
+      <OfferBlock/>
+      <Tarot/>
+
+      <Login/>
+    </>
   );
 }

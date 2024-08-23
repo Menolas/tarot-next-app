@@ -1,0 +1,20 @@
+.offer-block {
+  background-image: url("../img/moon-screen.png");
+  background-position: center;
+  background-size: cover;
+
+  .offer-block__title {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    font-size: 100px;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 900px) {
+  .offer-block {
+    height: 830px;
+  }
+}

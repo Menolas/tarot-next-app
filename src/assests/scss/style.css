@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-weight: 200;
   color: rgba(250, 225, 163, 0.6);
-  background-color: #080808;
+  background-color: #010101;
 }
 
 a {
@@ -40,10 +40,6 @@ input:-internal-autofill-selected {
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 600000s 0s, color 600000s 0s;
-}
-
-svg {
-  fill: #fafafa;
 }
 
 .hidden {
@@ -88,24 +84,17 @@ img {
 
 @media (min-width: 900px) {
   .container {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 5rem;
+    padding: 0 3rem;
   }
 }
 .main-header {
   display: flex;
   align-items: center;
   padding-top: 1rem;
-  padding-bottom: 1rem;
 }
 
-@media (min-width: 900px) {
-  .main-header {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}
 .main-menu {
   margin-left: auto;
   border: 1px solid rgba(250, 225, 163, 0.35);
@@ -136,6 +125,80 @@ img {
 }
 .logo svg path {
   fill: rgba(250, 225, 163, 0.35);
+}
+
+.offer-block {
+  background-image: url("../img/moon-screen.png");
+  background-position: center;
+  background-size: cover;
+}
+.offer-block .offer-block__title {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  font-size: 100px;
+  font-weight: 700;
+}
+
+@media (min-width: 900px) {
+  .offer-block {
+    height: 830px;
+  }
+}
+.tarot {
+  background-image: url("../img/hands-and-candles.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tarot .tarot__cards-container {
+  display: flex;
+  justify-content: space-between;
+}
+.tarot .tarot__info-block {
+  display: flex;
+  justify-content: space-between;
+}
+.tarot .tarot__result {
+  flex: 1 1 40%;
+  padding: 1rem;
+  border: 1px solid rgba(250, 225, 163, 0.35);
+  border-radius: 0.5rem;
+}
+.tarot .btn-try-again {
+  flex: 1 1 40%;
+  text-align: left;
+  font-size: 35px;
+}
+
+.btn {
+  color: rgba(250, 225, 163, 0.6);
+  font-weight: 200;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.btn-try-again {
+  padding: 2rem;
+  border: 1px solid rgba(250, 225, 163, 0.35);
+  border-style: dashed;
+  background-image: url("../img/hand-with-cards.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+.title {
+  text-align: center;
+}
+.title--secondary {
+  margin-bottom: 4rem;
+  padding: 1rem;
+  font-size: 35px;
+  font-weight: 100;
+  border: 1px solid rgba(250, 225, 163, 0.35);
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

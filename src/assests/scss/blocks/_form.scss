@@ -1,0 +1,15 @@
+.form {
+  .form__input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .form__input {
+    height: 50px;
+    background-color: transparent;
+    border: $border;
+    border-radius: $border-radius;
+  }
+}

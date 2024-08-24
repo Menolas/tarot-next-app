@@ -2,7 +2,7 @@ export default function Tarot() {
     return (
         <section className="tarot">
             <div className="container">
-                <h2 className="tarot__title title title--secondary">FLIP THE CARDS FROM LEFT TO RIGHT</h2>
+                <h2 className="tarot__title title title--secondary">Unveil Your Destiny, Card by Card</h2>
                 <div className="tarot__cards-container">
                     <div className="tarot__card-wrap">
                         <img src="../img/Card-left.png" alt="Tarot Card"/>
@@ -16,7 +16,7 @@ export default function Tarot() {
                 </div>
                 <div className="tarot__info-block">
                     <div className="tarot__result">
-                        <h3 className="tarot__result-title">Your Destini</h3>
+                        <h3 className="title title--third tarot__result-title">The Cards Have Spoken</h3>
                         <p className="tarot__result-text">
                             This card refers to an old Zen parable about how a sheep
                             raised a lion cub and he thought he was a sheep until the

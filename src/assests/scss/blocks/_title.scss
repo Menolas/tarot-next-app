@@ -1,12 +1,16 @@
 .title {
   text-align: center;
+  font-weight: 100;
 
   &--secondary {
     margin-bottom: 4rem;
     padding: 1rem;
     font-size: 35px;
-    font-weight: 100;
     border: $border;
     border-radius: $border-radius;
+  }
+
+  &--third {
+    font-size: 20px;
   }
 }

@@ -1,0 +1,21 @@
+.login {
+  padding-top: 200px;
+  background-image: url("../img/face.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form--login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    max-width: 740px;
+  }
+}

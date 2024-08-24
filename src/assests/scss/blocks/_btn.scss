@@ -1,9 +1,13 @@
 .btn {
+  padding: 1rem 2.25rem;
   color: $text-color;
   font-weight: $general-font-weight;
-  background-color: transparent;
-  border-radius: $border-radius;
+  line-height: 1;
   text-transform: uppercase;
+  border: $border;
+  border-radius: $border-radius;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 .btn-try-again {
@@ -14,4 +18,10 @@
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
+}
+
+@media (min-width: 900px) {
+  .btn {
+    font-size: 35px;
+  }
 }

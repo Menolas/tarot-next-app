@@ -32,7 +32,33 @@
   }
 }
 
-.shineEffect {
-  position: relative;
-  overflow: hidden;
+@keyframes offerBlockTitleAnimationDesktop {
+  from {
+    top: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    top: 100px;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes moonAnimation {
+  from {
+    top: 32.5%;
+    transform: translate(-50%, 0);
+  }
+  to {
+    top: -20px;
+    transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes offerBlockCardBlockAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

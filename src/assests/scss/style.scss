@@ -1,8 +1,10 @@
 @import "_variables";
 @import "_mixins";
+@import "_animations";
 @import "global/_normalize";
 @import "global/_scafolding";
 @import "blocks/_container";
+@import "blocks/_shine-effect";
 @import "blocks/_main-header";
 @import "blocks/_main-menu";
 @import "blocks/_logo";
@@ -12,3 +14,4 @@
 @import "blocks/_title";
 @import "blocks/_form";
 @import "blocks/_login";
+@import "blocks/_main-footer";

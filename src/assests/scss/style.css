@@ -1,3 +1,37 @@
+@keyframes shine {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+    fill: rgba(250, 225, 163, 0.75);
+    transform: scale(1);
+  }
+}
+@keyframes twink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(-0.3);
+  }
+}
+@keyframes shivering {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+    fill: rgba(250, 225, 163, 0.75);
+    transform: scale(1.03);
+  }
+}
+.shineEffect {
+  position: relative;
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,7 +52,7 @@ body {
   font-weight: 100;
   color: rgba(250, 225, 163, 0.75);
   background-color: #0b0b0b;
-  background-image: url("../img/bg.png");
+  background-image: url("/decor-img/bg.png");
   background-position: top center;
   background-repeat: no-repeat;
 }
@@ -41,10 +75,6 @@ div#root {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-input:-internal-autofill-selected {
-  background-color: transparent;
 }
 
 input:-webkit-autofill,
@@ -83,11 +113,8 @@ img {
 }
 
 .border-dashed {
-  border: none;
-  padding: 1px;
-  width: calc(auto - 2px);
-  background-image: linear-gradient(to right, rgba(250, 225, 163, 0.75) 50%, transparent 0%);
-  background-size: 20px 1px; /* 10px length for dashes, 1px gap */
+  border: 1px solid !important;
+  border-image: repeating-linear-gradient(45deg, rgba(250, 225, 163, 0.75), transparent, rgba(250, 225, 163, 0.75) 10px) 10 !important;
 }
 
 .container {
@@ -103,6 +130,27 @@ img {
     padding: 0 3rem;
   }
 }
+.shineEffect {
+  position: absolute;
+  display: inline-flex;
+}
+.shineEffect svg {
+  width: 100px;
+  height: 100px;
+}
+.shineEffect svg path {
+  fill: rgba(250, 225, 163, 0.45);
+}
+.shineEffect svg[class*=butterfly] path[class*=shine] {
+  animation: shivering 0.2s infinite;
+}
+.shineEffect svg[class*=twink] {
+  transform: rotate(-120deg);
+}
+.shineEffect svg[class*=twink] path {
+  animation: twink 2s infinite;
+}
+
 .main-header {
   position: absolute;
   top: 0;
@@ -451,8 +499,38 @@ img {
   gap: 4rem;
   padding: 3rem 5rem;
   max-width: 740px;
-  border: 1px solid rgba(250, 225, 163, 0.35);
   border-radius: 0.5rem;
+}
+
+.main-footer {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #0b0b0b;
+}
+.main-footer .main-footer__copyright {
+  padding-left: 120px;
+}
+.main-footer .main-footer__copyright .main-footer__link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  color: rgba(250, 225, 163, 0.75);
+  font-size: 1.2rem;
+}
+.main-footer .shineEffect {
+  bottom: 3rem;
+}
+.main-footer .shineEffect--1 {
+  left: 2rem;
+}
+.main-footer .shineEffect--2 {
+  right: 2rem;
+}
+.main-footer .shineEffect--3 {
+  left: 4rem;
+  bottom: 8rem;
 }
 
 /*# sourceMappingURL=style.css.map */

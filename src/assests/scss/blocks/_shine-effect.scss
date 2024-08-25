@@ -1,0 +1,30 @@
+.shineEffect {
+  position: absolute;
+  display: inline-flex;
+
+  svg {
+    width: 100px;
+    height: 100px;
+    path {
+      fill: rgba(250, 225, 163, 0.45);
+    }
+  }
+
+  path[class*='shine'] {
+    //animation: shine 3s infinite;
+    //opacity: 0.8;
+  }
+
+  svg[class*='butterfly'] {
+    path[class*='shine'] {
+      animation: shivering 0.2s infinite;
+    }
+  }
+
+  svg[class*='twink'] {
+    transform: rotate(-120deg);
+    path {
+      animation: twink 2s infinite;
+    }
+  }
+}

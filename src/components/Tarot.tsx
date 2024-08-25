@@ -26,7 +26,7 @@ export default function Tarot() {
                             of others.
                         </p>
                     </div>
-                    <button className="btn btn-try-again">
+                    <button className="btn btn-try-again border-dashed">
                         Revoke and Retry
                     </button>
                 </div>

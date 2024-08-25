@@ -1,3 +1,5 @@
+import {SmokeAnimation} from '../components/SmokeAnimation';
+
 export default function OfferBlock() {
     return (
         <section className="offer-block">

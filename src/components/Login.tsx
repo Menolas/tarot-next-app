@@ -4,7 +4,7 @@ export default function Login() {
     return (
         <section className="login">
             <div className="container">
-                <h2 className="title title--secondary login__title">LOG IN TO LEARN MORE</h2>
+                <h2 className="title title--secondary login__title">Step Through the Veil</h2>
                 <LoginForm />
             </div>
         </section>

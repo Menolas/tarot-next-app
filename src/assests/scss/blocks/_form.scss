@@ -7,9 +7,45 @@
   }
 
   .form__input {
+    padding: 0.3rem 1rem;
+    width: 100%;
     height: 50px;
-    background-color: transparent;
+    font-size: 1.1rem;
+    font-weight: 200;
+    font-family: $font-family;
+    color: $text-color;
+    background-color: #1e1e1e;
     border: $border;
     border-radius: $border-radius;
+
+    &:focus {
+      border: $border;
+      outline: none;
+    }
+
+    &:-internal-autofill-selected {
+      background-color: #1e1e1e;
+    }
+  }
+
+  .form__input-wrap {
+    &--password {
+      position: relative;
+
+      .btn-show-password {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        padding: 0.4rem 0.5rem;
+        width: 48px;
+        height: 36px;
+        background-image: url("../img/eye.png");
+        background-repeat: no-repeat;
+        background-size: 32px;
+        background-position: center;
+        transform: translate(0, -50%);
+        border: none;
+      }
+    }
   }
 }

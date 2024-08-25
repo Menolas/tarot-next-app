@@ -62,3 +62,11 @@
     display:block;
   }
 }
+
+@mixin border-dashed-horizontal {
+  border: none;
+  padding: 1px;
+  width: calc(auto - 2px);
+  background-image: linear-gradient(to right, $primary 50%, transparent 0%);
+  background-size: 20px 1px; /* 10px length for dashes, 1px gap */
+}

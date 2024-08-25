@@ -2,7 +2,7 @@
 body {
   display: block;
   margin: 0;
-  font-family: "Raleway", system-ui;
+  font-family: $font-family;
   font-weight: $general-font-weight;
   color: $text-color;
   background-color: #0b0b0b;
@@ -12,7 +12,7 @@ body {
 }
 
 button {
-  font-family: "Raleway", system-ui;
+  font-family: $font-family;
   font-weight: $general-font-weight;
   color: $text-color;
 }
@@ -81,9 +81,6 @@ img {
   }
 }
 
-
-.app {
-  position: relative;
-  //height: 100vh;
-  overflow: auto;
+.border-dashed {
+  @include border-dashed-horizontal;
 }

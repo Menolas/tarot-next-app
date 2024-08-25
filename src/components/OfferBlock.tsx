@@ -1,4 +1,4 @@
-import {SmokeAnimation} from '../components/SmokeAnimation';
+import Hand from "../assests/svg/hand.svg";
 
 export default function OfferBlock() {
     return (
@@ -13,14 +13,14 @@ export default function OfferBlock() {
             </div>
 
             <div className="offer-block__screen offer-block__screen--cards">
-                <div className="clouds"></div>
+                {/*<div className="clouds"></div>*/}
                 <div className="inner-wrap">
                     <button className="btn offer-block__btn offer-block__btn--left">
                         Embrace <br />the Unknown
                     </button>
                     <div className="center">
                         <div className="card"></div>
-                        <div className="hand"></div>
+                        <div className="hand"><Hand /></div>
                     </div>
                     <button className="btn offer-block__btn offer-block__btn--right">
                         Join the Circle <br /> of the Chosen

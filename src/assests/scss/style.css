@@ -27,11 +27,34 @@
     transform: scale(1.03);
   }
 }
-.shineEffect {
-  position: relative;
-  overflow: hidden;
+@keyframes offerBlockTitleAnimationDesktop {
+  from {
+    top: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    top: 100px;
+    transform: translate(-50%, 0);
+  }
 }
-
+@keyframes moonAnimation {
+  from {
+    top: 32.5%;
+    transform: translate(-50%, 0);
+  }
+  to {
+    top: -20px;
+    transform: translate(-50%, -100%);
+  }
+}
+@keyframes offerBlockCardBlockAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -131,6 +154,7 @@ img {
   }
 }
 .shineEffect {
+  overflow: hidden;
   position: absolute;
   display: inline-flex;
 }
@@ -160,7 +184,7 @@ img {
   height: 100vh;
 }
 .smoke-animation canvas {
-  opacity: 0.4;
+  opacity: 0.6;
 }
 
 .main-header {
@@ -235,7 +259,7 @@ img {
   z-index: -1;
 }
 .offer-block .offer-block__screen--cards {
-  display: none;
+  opacity: 0;
   z-index: 1;
 }
 .offer-block .moon {
@@ -251,20 +275,14 @@ img {
   background-position: center;
   transform: translate(-50%, 0);
   z-index: 0;
+  animation: moonAnimation 3s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 4s;
 }
-.offer-block .offer-block__screen--cards .clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 550px;
-  z-index: 0;
-  background-image: url("/decor-img/cloudsBG.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
-  opacity: 0.7;
+.offer-block .offer-block__screen--cards {
+  animation: offerBlockCardBlockAnimation 3s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
 }
 .offer-block .offer-block__screen--cards .inner-wrap {
   position: absolute;
@@ -305,16 +323,18 @@ img {
   background-size: contain;
 }
 .offer-block .offer-block__screen--cards .hand {
-  width: 100%;
-  height: 103px;
-  background-image: url("/decor-img/hand.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  display: flex;
+  justify-content: center;
   opacity: 0.4;
 }
+.offer-block .offer-block__screen--cards .hand svg {
+  width: 204px;
+  height: 103px;
+}
 .offer-block .offer-block__title {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: -20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -323,6 +343,10 @@ img {
   width: 100%;
   font-size: 100px;
   z-index: 1;
+  transform: translate(-50%, -100%);
+  animation: offerBlockTitleAnimationDesktop 3s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
 }
 
 .tarot {

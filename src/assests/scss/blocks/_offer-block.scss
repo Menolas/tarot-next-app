@@ -28,7 +28,6 @@
     background-repeat: no-repeat;
 
     &--moon {
-      //display: none;
       z-index: -1;
     }
 
@@ -51,31 +50,9 @@
     background-position: center;
     transform: translate(-50%, 0);
     z-index: 0;
-    animation: moonAnimation 3s forwards;
-    animation-iteration-count: 1;
-    animation-delay: 4s;
   }
 
   .offer-block__screen--cards {
-    animation: offerBlockCardBlockAnimation 3s forwards;
-    animation-iteration-count: 1;
-    animation-delay: 5s;
-
-    //.clouds {
-    //  position: absolute;
-    //  top: 0;
-    //  left: 0;
-    //  right: 0;
-    //  width: 100%;
-    //  height: 550px;
-    //  z-index: 0;
-    //  background-image: url("/decor-img/cloudsBG.png");
-    //  background-repeat: no-repeat;
-    //  background-size: cover;
-    //  background-position: bottom;
-    //  opacity: 0.7;
-    //}
-
     .inner-wrap {
       position: absolute;
       left: 50%;
@@ -145,9 +122,27 @@
     font-size: 100px;
     z-index: 1;
     transform: translate(-50%, -100%);
-    animation: offerBlockTitleAnimationDesktop 3s forwards;
-    animation-iteration-count: 1;
-    animation-delay: 3s;
+  }
+
+  &.loaded {
+
+    .offer-block__title {
+      animation: offerBlockTitleAnimationDesktop 3s forwards;
+      animation-iteration-count: 1;
+      animation-delay: 3s;
+    }
+
+    .moon {
+      animation: moonAnimation 3s forwards;
+      animation-iteration-count: 1;
+      animation-delay: 4s;
+    }
+
+    .offer-block__screen--cards {
+      animation: offerBlockCardBlockAnimation 3s forwards;
+      animation-iteration-count: 1;
+      animation-delay: 5s;
+    }
   }
 }
 

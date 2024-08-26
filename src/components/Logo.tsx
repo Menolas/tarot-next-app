@@ -1,4 +1,4 @@
-import LogoImg from "../assests/svg/logo.svg";
+import LogoImg from "../assets/svg/logo.svg";
 export default function Logo() {
     return (
         <div className="logo">

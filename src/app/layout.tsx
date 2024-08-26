@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import "../assests/scss/style.css";
+import "../assets/scss/style.css";
 import Header from "../components/Header";
 import Footer from "@/components/Footer";
 import {SmokeAnimation} from "@/components/SmokeAnimation";

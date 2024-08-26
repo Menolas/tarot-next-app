@@ -1,9 +1,9 @@
 "use client";
 import Link from "next/link";
 import {ShiningElement} from "@/components/ShiningElement";
-import Bottle1 from "../assests/svg/bottle1.svg";
-import Bottle2 from "../assests/svg/bottle2.svg";
-import Twink from "../assests/svg/twink.svg";
+import Bottle1 from "../assets/svg/bottle1.svg";
+import Bottle2 from "../assets/svg/bottle2.svg";
+import Twink from "../assets/svg/twink.svg";
 
 export default function Footer() {
     return (

@@ -1,6 +1,8 @@
 "use client";
 
-import Hand from "../assests/svg/hand.svg";
+import Hand from "../assets/svg/hand.svg";
+import Medallion1 from "../assets/svg/medallion1.svg";
+import Medallion2 from "../assets/svg/medallion2.svg";
 import {SmokeAnimation} from "@/components/SmokeAnimation";
 import {useEffect, useState} from "react";
 
@@ -27,6 +29,10 @@ export default function OfferBlock() {
                             <div className="moon"></div>
                         </div>
                         <div className="offer-block__screen offer-block__screen--cards">
+                            <div className="offer-block__screen-bg">
+                                <Medallion1 />
+                                <Medallion2 />
+                            </div>
                             <div className="inner-wrap">
                                 <button className="btn offer-block__btn offer-block__btn--left">
                                     Embrace <br/>the Unknown

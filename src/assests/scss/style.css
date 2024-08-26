@@ -38,11 +38,15 @@
   }
 }
 @keyframes moonAnimation {
-  from {
+  0% {
     top: 32.5%;
     transform: translate(-50%, 0);
+    opacity: 0;
   }
-  to {
+  10% {
+    opacity: 1;
+  }
+  100% {
     top: -20px;
     transform: translate(-50%, -100%);
   }
@@ -275,14 +279,6 @@ img {
   background-position: center;
   transform: translate(-50%, 0);
   z-index: 0;
-  animation: moonAnimation 3s forwards;
-  animation-iteration-count: 1;
-  animation-delay: 4s;
-}
-.offer-block .offer-block__screen--cards {
-  animation: offerBlockCardBlockAnimation 3s forwards;
-  animation-iteration-count: 1;
-  animation-delay: 5s;
 }
 .offer-block .offer-block__screen--cards .inner-wrap {
   position: absolute;
@@ -344,9 +340,21 @@ img {
   font-size: 100px;
   z-index: 1;
   transform: translate(-50%, -100%);
+}
+.offer-block.loaded .offer-block__title {
   animation: offerBlockTitleAnimationDesktop 3s forwards;
   animation-iteration-count: 1;
   animation-delay: 3s;
+}
+.offer-block.loaded .moon {
+  animation: moonAnimation 3s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 4s;
+}
+.offer-block.loaded .offer-block__screen--cards {
+  animation: offerBlockCardBlockAnimation 3s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
 }
 
 .tarot {

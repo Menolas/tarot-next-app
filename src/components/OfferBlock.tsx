@@ -11,7 +11,7 @@ export default function OfferBlock() {
 
     useEffect(() => {
         setIsLoaded(true);
-        console.log("OfferBlock loaded")
+
     }, []);
     return (
         <section className={`offer-block ${isLoaded ? "loaded" : ""}`}>

@@ -73,16 +73,10 @@
 }
 @keyframes cardTwistAnimation {
   0% {
-    background-image: url("/decor-img/card.png");
-  }
-  50% {
-    transform: rotateY(90deg);
-  }
-  52% {
-    background-image: url("/decor-img/card1.png");
+    transform: rotateY(180deg);
   }
   100% {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 }
 * {
@@ -356,18 +350,31 @@ img {
 .offer-block .offer-block__screen--cards .offer-block__btn--right {
   text-align: left;
 }
-.offer-block .offer-block__screen--cards .card {
-  margin-bottom: 2.25rem;
+.offer-block .offer-block__screen--cards .card-container {
   width: 365px;
   height: 450px;
-  background-image: url("/decor-img/card.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  perspective: 1000px;
+}
+.offer-block .offer-block__screen--cards .card {
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+.offer-block .offer-block__screen--cards .card__front, .offer-block .offer-block__screen--cards .card__back {
+  position: absolute;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.offer-block .offer-block__screen--cards .card__back {
+  transform: rotateY(180deg);
 }
 .offer-block .offer-block__screen--cards .hand {
   display: flex;
   justify-content: center;
+  margin-top: 2.25rem;
   opacity: 0.4;
 }
 .offer-block .offer-block__screen--cards .hand svg {

@@ -87,19 +87,35 @@
       text-align: left;
     }
 
-    .card {
-      margin-bottom: 2.25rem;
+    .card-container {
       width: 365px;
       height: 450px;
-      background-image: url("/decor-img/card.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      perspective: 1000px;
+    }
+
+    .card {
+      position: relative;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+    }
+
+    .card__front, .card__back {
+      position: absolute;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card__back {
+      transform: rotateY(180deg);
     }
 
     .hand {
       display: flex;
       justify-content: center;
+      margin-top: 2.25rem;
       opacity: 0.4;
 
       svg {

@@ -87,19 +87,10 @@
 
 @keyframes cardTwistAnimation {
   0% {
-    //transform: rotateY(0deg);
-    background-image: url("/decor-img/card.png");
-  }
-
-  50% {
-    transform: rotateY(90deg);
-  }
-
-  52% {
-    background-image: url("/decor-img/card1.png");
+    transform: rotateY(180deg);
   }
 
   100% {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 }

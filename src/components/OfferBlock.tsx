@@ -1,5 +1,6 @@
 "use client";
 
+import Image from 'next/image';
 import Hand from "../assets/svg/hand.svg";
 import Medallion1 from "../assets/svg/medallion1.svg";
 import Medallion2 from "../assets/svg/medallion2.svg";
@@ -38,7 +39,26 @@ export default function OfferBlock() {
                                     Embrace <br/>the Unknown
                                 </button>
                                 <div className="center">
-                                    <div className="card"></div>
+                                    <div className="card-container">
+                                        <div className="card">
+                                            <div className="card__front">
+                                                <Image
+                                                    src="/decor-img/card.png"
+                                                    alt="Tarot Card"
+                                                    width={365}
+                                                    height={450}
+                                                />
+                                            </div>
+                                            <div className="card__back">
+                                                <Image
+                                                    src="/decor-img/card1.png"
+                                                    alt="Tarot Card"
+                                                    width={365}
+                                                    height={450}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div className="hand"><Hand/></div>
                                 </div>
                                 <button className="btn offer-block__btn offer-block__btn--right">

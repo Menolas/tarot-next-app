@@ -50,13 +50,15 @@
   }
 }
 @keyframes moonAnimation {
-  0% {
+  30% {
     top: 32.5%;
-    transform: translate(-50%, 0);
-    opacity: 0;
-  }
-  10% {
     opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  70% {
+    top: 32.5%;
+    opacity: 0.8;
+    transform: translate(-50%, 0);
   }
   100% {
     top: -20px;
@@ -64,10 +66,7 @@
   }
 }
 @keyframes offerBlockCardBlockAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
+  100% {
     opacity: 1;
   }
 }
@@ -287,8 +286,8 @@ img {
   left: 0;
   right: 0;
   width: 100%;
-  height: 70%;
-  background-image: linear-gradient(to top, rgb(11, 11, 11), rgba(11, 11, 11, 0.04));
+  height: 90%;
+  background-image: linear-gradient(to top, rgb(9, 9, 9) 0%, rgba(9, 9, 9, 0.92) 13%, rgba(9, 9, 9, 0) 96%);
   z-index: 0;
 }
 .offer-block .offer-block__screen {
@@ -314,12 +313,16 @@ img {
   right: 0;
   width: 513px;
   height: 513px;
-  background-image: url("/decor-img/moon.png");
+  background-image: url("/decor-img/moon.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   transform: translate(-50%, 0);
+  opacity: 0;
   z-index: 0;
+}
+.offer-block .offer-block__screen--cards {
+  opacity: 0;
 }
 .offer-block .offer-block__screen--cards .inner-wrap {
   position: absolute;
@@ -398,21 +401,21 @@ img {
 .offer-block.loaded .offer-block__title {
   animation: offerBlockTitleAnimationDesktop 3s forwards;
   animation-iteration-count: 1;
-  animation-delay: 3s;
+  animation-delay: 5s;
 }
 .offer-block.loaded .moon {
-  animation: moonAnimation 3s forwards;
+  animation: moonAnimation 6s forwards;
   animation-iteration-count: 1;
-  animation-delay: 4s;
+  animation-delay: 3s;
 }
 .offer-block.loaded .offer-block__screen--cards {
-  animation: offerBlockCardBlockAnimation 3s forwards;
+  animation: offerBlockCardBlockAnimation 5s forwards;
   animation-iteration-count: 1;
-  animation-delay: 5s;
+  animation-delay: 10s;
 }
 .offer-block.loaded .card {
   animation: cardTwistAnimation 3s infinite;
-  animation-delay: 7s;
+  animation-delay: 10s;
 }
 .offer-block .offer-block__screen-bg {
   position: absolute;
@@ -420,13 +423,14 @@ img {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 10%;
   z-index: 0;
 }
 .offer-block .offer-block__screen-bg svg {
   width: 400px;
   height: 400px;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 
 .tarot {
@@ -446,11 +450,26 @@ img {
 }
 .tarot::before {
   top: 0;
-  background-image: linear-gradient(to bottom, rgb(11, 11, 11) 0%, rgba(11, 11, 11, 0.92) 18%, rgba(11, 11, 11, 0.04) 100%);
+  background-image: linear-gradient(to bottom, rgb(9, 9, 9) 0%, rgba(9, 9, 9, 0.92) 18%, rgba(9, 9, 9, 0.04) 100%);
 }
 .tarot::after {
   bottom: 0;
-  background-image: linear-gradient(to top, rgb(11, 11, 11) 0%, rgba(11, 11, 11, 0.92) 21%, rgba(11, 11, 11, 0.04) 100%);
+  background-image: linear-gradient(to top, rgb(9, 9, 9) 0%, rgba(9, 9, 9, 0.92) 21%, rgba(9, 9, 9, 0.04) 100%);
+}
+.tarot .tarot__screen-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  z-index: 0;
+}
+.tarot .tarot__screen-bg svg {
+  width: 400px;
+  height: 400px;
+  opacity: 0.4;
 }
 .tarot .container {
   display: flex;
@@ -467,6 +486,12 @@ img {
   margin-bottom: 78px;
   width: 100%;
   z-index: 1;
+}
+.tarot .tarot__card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 }
 .tarot .tarot__info-block {
   position: relative;
@@ -622,7 +647,7 @@ img {
   position: relative;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  background-color: #0b0b0b;
+  background-color: rgb(9, 9, 9);
 }
 .main-footer .main-footer__copyright {
   padding-left: 120px;

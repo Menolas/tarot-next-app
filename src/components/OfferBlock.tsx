@@ -43,7 +43,7 @@ export default function OfferBlock() {
                                         <div className="card">
                                             <div className="card__front">
                                                 <Image
-                                                    src="/decor-img/card.png"
+                                                    src="/decor-img/card.webp"
                                                     alt="Tarot Card"
                                                     width={365}
                                                     height={450}
@@ -51,7 +51,7 @@ export default function OfferBlock() {
                                             </div>
                                             <div className="card__back">
                                                 <Image
-                                                    src="/decor-img/card1.png"
+                                                    src="/decor-img/card1.webp"
                                                     alt="Tarot Card"
                                                     width={365}
                                                     height={450}

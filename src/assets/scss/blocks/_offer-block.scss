@@ -10,11 +10,13 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: 70%;
+    height: 90%;
     background-image: linear-gradient(
                     to top,
-                    rgba(11, 11, 11, 1),
-                    rgba(11, 11, 11, 0.04));
+                    rgba(9, 9, 9, 1) 0%,
+                    rgba(9, 9, 9, 0.92) 13%,
+                    rgba(9, 9, 9, 0) 96%,
+    );
     z-index: 0;
   }
 
@@ -44,15 +46,17 @@
     right: 0;
     width: 513px;
     height: 513px;
-    background-image: url("/decor-img/moon.png");
+    background-image: url("/decor-img/moon.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     transform: translate(-50%, 0);
+    opacity: 0;
     z-index: 0;
   }
 
   .offer-block__screen--cards {
+    opacity: 0;
     .inner-wrap {
       position: absolute;
       left: 50%;
@@ -145,24 +149,24 @@
     .offer-block__title {
       animation: offerBlockTitleAnimationDesktop 3s forwards;
       animation-iteration-count: 1;
-      animation-delay: 3s;
+      animation-delay: 5s;
     }
 
     .moon {
-      animation: moonAnimation 3s forwards;
+      animation: moonAnimation 6s forwards;
       animation-iteration-count: 1;
-      animation-delay: 4s;
+      animation-delay: 3s;
     }
 
     .offer-block__screen--cards {
-      animation: offerBlockCardBlockAnimation 3s forwards;
+      animation: offerBlockCardBlockAnimation 5s forwards;
       animation-iteration-count: 1;
-      animation-delay: 5s;
+      animation-delay: 10s;
     }
 
     .card {
       animation: cardTwistAnimation 3s infinite;
-      animation-delay: 7s;
+      animation-delay: 10s;
     }
   }
 
@@ -172,13 +176,14 @@
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 10%;
     z-index: 0;
 
     svg {
       width: 400px;
       height: 400px;
-      opacity: 0.2;
+      opacity: 0.4;
     }
   }
 }

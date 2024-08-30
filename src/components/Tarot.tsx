@@ -47,7 +47,7 @@ export default function Tarot() {
                         }}
                     >
                         <Image
-                            src="/decor-img/Card-left.webp"
+                            src={chosenCards[0]?.image ?? "/decor-img/Card-left.webp"}
                             alt="Tarot Card"
                             width={315}
                             height={449}
@@ -61,7 +61,7 @@ export default function Tarot() {
                         }}
                     >
                         <Image
-                            src="/decor-img/Card-middle.webp"
+                            src={chosenCards[1]?.image ?? "/decor-img/Card-middle.webp"}
                             alt="Tarot Card"
                             width={315}
                             height={449}
@@ -75,7 +75,7 @@ export default function Tarot() {
                         }}
                     >
                         <Image
-                            src="/decor-img/Card-right.webp"
+                            src={chosenCards[2]?.image ?? "/decor-img/Card-right.webp"}
                             alt="Tarot Card"
                             width={315}
                             height={449}

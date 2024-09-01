@@ -69,6 +69,12 @@
     z-index: 1;
   }
 
+  .tarot__shake-btn {
+    position: relative;
+    margin-bottom: 2rem;
+    z-index: 10;
+  }
+
   .tarot__card-wrap {
     display: flex;
     flex-direction: column;

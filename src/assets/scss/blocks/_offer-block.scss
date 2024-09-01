@@ -91,31 +91,6 @@
       text-align: left;
     }
 
-    .card-container {
-      width: 365px;
-      height: 450px;
-      perspective: 1000px;
-    }
-
-    .card {
-      position: relative;
-      transition: transform 1s;
-      transform-style: preserve-3d;
-    }
-
-    .card__front, .card__back {
-      position: absolute;
-      -webkit-backface-visibility: hidden; /* Safari */
-      backface-visibility: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .card__back {
-      transform: rotateY(180deg);
-    }
-
     .hand {
       display: flex;
       justify-content: center;
@@ -149,24 +124,19 @@
     .offer-block__title {
       animation: offerBlockTitleAnimationDesktop 3s forwards;
       animation-iteration-count: 1;
-      animation-delay: 5s;
+      animation-delay: 4s;
     }
 
     .moon {
       animation: moonAnimation 6s forwards;
       animation-iteration-count: 1;
-      animation-delay: 3s;
+      animation-delay: 2.5s;
     }
 
     .offer-block__screen--cards {
       animation: offerBlockCardBlockAnimation 5s forwards;
       animation-iteration-count: 1;
-      animation-delay: 10s;
-    }
-
-    .card {
-      animation: cardTwistAnimation 3s infinite;
-      animation-delay: 10s;
+      animation-delay: 8s;
     }
   }
 

@@ -3,7 +3,6 @@ import { Raleway } from "next/font/google";
 import "../assets/scss/style.css";
 import Header from "../components/Header";
 import Footer from "@/components/Footer";
-import {SmokeAnimation} from "@/components/SmokeAnimation";
 
 const inter = Raleway({ subsets: ["latin"] });
 
@@ -20,12 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
     <body className={inter.className}>
-      <Header/>
-      <main className="">
-        {children}
-      </main>
+      {children}
       <Footer/>
     </body>
     </html>
   );
-}
+};

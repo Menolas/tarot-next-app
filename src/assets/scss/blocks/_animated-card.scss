@@ -1,0 +1,45 @@
+.animated-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.animated-card__wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.animated-card__front,
+.animated-card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.flipped {
+  .animated-card__front {
+    transform: rotateY(180deg);
+  }
+
+  .animated-card__back {
+    transform: rotateY(0deg);
+  }
+}
+
+.animated-card__back {
+  transform: rotateY(180deg);
+}
+

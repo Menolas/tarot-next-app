@@ -1,10 +1,11 @@
 "use client";
 
 import OfferBlock from "@/components/OfferBlock";
-import Tarot from "@/components/Tarot";
 import Login from "@/components/Login";
 import Loader from "@/components/Loader";
 import {useEffect, useState} from "react";
+import Header from "@/components/Header";
+import {AppProvider} from "@/AppProvider";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -15,17 +16,20 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <AppProvider>
         {!isLoaded
             ? <Loader />
             : (
                 <>
+                  <Header/>
+                  <main className="">
                     <OfferBlock/>
-                    <Tarot/>
+                    {/*<Tarot/>*/}
                     <Login/>
+                  </main>
                 </>
             )
         }
-    </>
+    </AppProvider>
   );
-}
+};

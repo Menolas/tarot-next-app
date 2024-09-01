@@ -1,74 +1,84 @@
 "use client";
 
-import Image from 'next/image';
 import Hand from "../assets/svg/hand.svg";
 import Medallion1 from "../assets/svg/medallion1.svg";
 import Medallion2 from "../assets/svg/medallion2.svg";
 import {SmokeAnimation} from "@/components/SmokeAnimation";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import AnimatedCard from "@/components/AnimatedCard";
+import {pickRandomCards} from "@/utils";
+import {useAppContext} from "@/AppProvider";
+import {Tarot} from "@/components/Tarot";
 
 export default function OfferBlock() {
+    const { state, setState } = useAppContext();
     const [isLoaded, setIsLoaded] = useState(false);
+    const tarotRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         setIsLoaded(true);
 
     }, []);
+
+    const handleClick = () => {
+        const chosenCards = pickRandomCards({ cards: state.tarots, count: 3 });
+        setState({
+            ...state,
+            chosenCards,
+        });
+        if (tarotRef.current) {
+            tarotRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
-        <section className={`offer-block ${isLoaded ? "loaded" : ""}`}>
-            {!isLoaded
-                ? <div>Loading...</div>
-                : (
-                    <>
-                        <SmokeAnimation/>
-                        <h1 className="offer-block__title title title--primary">
-                            <span>Discover</span>
-                            <span>Your</span>
-                            <span>Fate</span>
-                        </h1>
-                        <div className="offer-block__screen offer-block__screen--moon">
-                            <div className="moon"></div>
-                        </div>
-                        <div className="offer-block__screen offer-block__screen--cards">
-                            <div className="offer-block__screen-bg">
-                                <Medallion1 />
-                                <Medallion2 />
+        <>
+            <section className={`offer-block ${isLoaded ? "loaded" : ""}`}>
+                {!isLoaded
+                    ? <div>Loading...</div>
+                    : (
+                        <>
+                            <SmokeAnimation/>
+                            <h1 className="offer-block__title title title--primary">
+                                <span>Discover</span>
+                                <span>Your</span>
+                                <span>Fate</span>
+                            </h1>
+                            <div className="offer-block__screen offer-block__screen--moon">
+                                <div className="moon"></div>
                             </div>
-                            <div className="inner-wrap">
-                                <button className="btn offer-block__btn offer-block__btn--left">
-                                    Embrace <br/>the Unknown
-                                </button>
-                                <div className="center">
-                                    <div className="card-container">
-                                        <div className="card">
-                                            <div className="card__front">
-                                                <Image
-                                                    src="/decor-img/card.webp"
-                                                    alt="Tarot Card"
-                                                    width={365}
-                                                    height={450}
-                                                />
-                                            </div>
-                                            <div className="card__back">
-                                                <Image
-                                                    src="/decor-img/card1.webp"
-                                                    alt="Tarot Card"
-                                                    width={365}
-                                                    height={450}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="hand"><Hand/></div>
+                            <div className="offer-block__screen offer-block__screen--cards">
+                                <div className="offer-block__screen-bg">
+                                    <Medallion1 />
+                                    <Medallion2 />
                                 </div>
-                                <button className="btn offer-block__btn offer-block__btn--right">
-                                    Join the Circle <br/> of the Chosen
-                                </button>
+                                <div className="inner-wrap">
+                                    <button
+                                        className="btn offer-block__btn offer-block__btn--left"
+                                        onClick={() => {
+                                            handleClick();
+                                        }}
+                                    >
+                                        Embrace <br/>the Unknown
+                                    </button>
+                                    <div className="center">
+                                        <AnimatedCard
+                                            frontUrl="/decor-img/card.webp"
+                                            backUrl="/decor-img/card1.webp"
+                                            animation="cardTwistAnimation 3s infinite"
+                                        />
+                                        <div className="hand"><Hand/></div>
+                                    </div>
+                                    <button className="btn offer-block__btn offer-block__btn--right">
+                                        Join the Circle <br/> of the Chosen
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </>
-                )
-            }
-        </section>
+                        </>
+                    )
+                }
+            </section>
+            <Tarot ref={tarotRef} />
+        </>
     );
 };

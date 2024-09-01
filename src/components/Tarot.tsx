@@ -1,38 +1,62 @@
 import Medallion3 from "@/assets/svg/medallion3.svg";
 import Medallion4 from "@/assets/svg/medallion4.svg";
-import {Card} from "@/types/Types";
-import Image from 'next/image';
-import {tarots} from "@/data";
-import {useEffect, useState} from "react";
+import {forwardRef, useEffect, useState} from "react";
+import AnimatedCard from "@/components/AnimatedCard";
+import {useAppContext} from "@/AppProvider";
+import {pickRandomCards} from "@/utils";
 
 
-export default function Tarot() {
-    const [cardsDeck, setCardsDeck] = useState<Card[]>([...tarots]);
-    const [chosenCards, setChosenCards] = useState<Card[]>([]);
+export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
+    const { state, setState } = useAppContext();
+    const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false]);
     const [isPredictionReady, setIsPredictionReady] = useState(false);
+    const [resetFlipped, setResetFlipped] = useState(false);
 
-    useEffect(() => {
-        if (chosenCards.length === 3) {
-            setIsPredictionReady(true);
-        }
-
-    }, [chosenCards]);
-
-    const pickRandomCards = async () => {
-        if (chosenCards.length < 3) {
-            const index = Math.floor(Math.random() * cardsDeck.length);
-            const card = cardsDeck[index];
-            setChosenCards((prevChosenCards) => [...prevChosenCards, card]);
-            setCardsDeck((prevDeck) => prevDeck.filter((_, i) => i !== index));
-            console.log(JSON.stringify(card) + " chosen card");
-            console.log(JSON.stringify(chosenCards) + " chosen cards");
-            return card;
-        }
-        return;
+    const chosenCards = state.chosenCards;
+    let cards = [];
+    for (let i = 0; i < 3; i++) {
+        const card = <AnimatedCard
+            key={i}
+            width={365}
+            height={583}
+            frontUrl="/decor-img/Card-middle.webp"
+            backUrl={chosenCards[i] ? chosenCards[i].image : "/decor-img/Card-middle.webp"}
+            animation="CardFlipAnimation 3s forwards"
+            resetFlipped={resetFlipped}
+            onClickAction={() => handleCardFlip(i)}
+        />
+        cards.push(card);
     }
 
+
+    const handleClick = () => {
+        const chosenCards = pickRandomCards({ cards: state.tarots, count: 3 });
+        setState({
+            ...state,
+            chosenCards,
+        });
+        setFlippedCards([false, false, false]);
+        setIsPredictionReady(false);
+        setResetFlipped(true);
+    };
+
+    const handleCardFlip = (index: number) => {
+        const newFlippedCards = [...flippedCards];
+        newFlippedCards[index] = true;
+        setFlippedCards(newFlippedCards);
+    };
+
+    useEffect(() => {
+
+        if (flippedCards.every(card => card)) {
+            setTimeout(() => {
+                setIsPredictionReady(true);
+            }, 3000)
+        }
+    }, [flippedCards]);
+
     return (
-        <section className="tarot">
+        <section className="tarot" ref={ref}>
             <div className="tarot__screen-bg">
                 <Medallion3/>
                 <Medallion4/>
@@ -40,48 +64,7 @@ export default function Tarot() {
             <div className="container">
                 <h2 className="tarot__title title title--secondary">Unveil Your Destiny, Card by Card</h2>
                 <div className="tarot__cards-container">
-                    <div
-                        className="tarot__card-wrap"
-                        onClick={() => {
-                            if (chosenCards.length === 0) pickRandomCards();
-                        }}
-                    >
-                        <Image
-                            src={chosenCards[0]?.image ?? "/decor-img/Card-left.webp"}
-                            alt="Tarot Card"
-                            width={315}
-                            height={449}
-                        />
-                        <span>{chosenCards[0]?.name ?? "" }</span>
-                    </div>
-                    <div
-                        className="tarot__card-wrap"
-                        onClick={() => {
-                            if (chosenCards.length === 1) pickRandomCards();
-                        }}
-                    >
-                        <Image
-                            src={chosenCards[1]?.image ?? "/decor-img/Card-middle.webp"}
-                            alt="Tarot Card"
-                            width={315}
-                            height={449}
-                        />
-                        <span>{chosenCards[1]?.name ?? ""}</span>
-                    </div>
-                    <div
-                        className="tarot__card-wrap"
-                        onClick={() => {
-                            if (chosenCards.length === 2) pickRandomCards();
-                        }}
-                    >
-                        <Image
-                            src={chosenCards[2]?.image ?? "/decor-img/Card-right.webp"}
-                            alt="Tarot Card"
-                            width={315}
-                            height={449}
-                        />
-                        <span>{chosenCards[2]?.name ?? ""}</span>
-                    </div>
+                    { cards}
                 </div>
                 {isPredictionReady && (
                     <div className="tarot__info-block">
@@ -96,7 +79,10 @@ export default function Tarot() {
                                 of others.
                             </p>
                         </div>
-                        <button className="btn btn-try-again border-dashed">
+                        <button
+                            className="btn btn-try-again border-dashed"
+                            onClick={handleClick}
+                        >
                             Revoke and Retry
                         </button>
                     </div>
@@ -104,4 +90,6 @@ export default function Tarot() {
             </div>
         </section>
     );
-};
+});
+
+Tarot.displayName = "Tarot";

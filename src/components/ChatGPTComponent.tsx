@@ -11,7 +11,8 @@ export const ChatGPTComponent = () => {
             return;
         }
 
-        const apiKey = process.env.OPENAI_API_KEY;
+        //const apiKey = process.env.OPENAI_API_KEY;
+        const apiKey = "bklgjsdfg;sdgusd;ogudsgu"
 
         setIsLoading(true);
         setResponse('Thinking...');

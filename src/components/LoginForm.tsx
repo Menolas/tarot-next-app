@@ -1,4 +1,4 @@
-export default function LoginForm() {
+export const LoginForm = () => {
     return (
         <form className="form form--login border-dashed">
             <div className="form__input-block">
@@ -21,4 +21,4 @@ export default function LoginForm() {
             </div>
         </form>
     );
-}
+};

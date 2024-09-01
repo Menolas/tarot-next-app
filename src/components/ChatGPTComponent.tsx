@@ -43,7 +43,7 @@ export const ChatGPTComponent = () => {
     return (
         <div id="chat-container">
             <input
-                type="text"
+                type="hidden"
                 id="question"
                 placeholder="Type your question here..."
                 value={question}

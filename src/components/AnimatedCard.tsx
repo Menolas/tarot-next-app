@@ -8,6 +8,7 @@ type PropsType = {
     backUrl: string;
     animation: string;
     resetFlipped?: boolean;
+    isDeckShaking?: boolean;
     onClickAction?: () => void;
 };
 
@@ -18,10 +19,12 @@ export default function AnimatedCard({
  backUrl,
  animation,
  resetFlipped,
+ isDeckShaking,
  onClickAction,
 }: PropsType) {
     const [isAnimating, setIsAnimating] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
+
 
     useEffect(() => {
         if (resetFlipped) {
@@ -43,7 +46,7 @@ export default function AnimatedCard({
     };
 
     const animationStyle: React.CSSProperties = {
-        animation: isAnimating ? animation : "none",
+        animation: isAnimating || isDeckShaking ? animation : "none",
     };
 
     const style: React.CSSProperties = {

@@ -1,6 +1,6 @@
 import LoginForm from "@/components/LoginForm";
 
-export default function Login() {
+export const Login = () => {
     return (
         <section className="login">
             <div className="container">

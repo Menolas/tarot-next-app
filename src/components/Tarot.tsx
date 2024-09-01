@@ -4,6 +4,7 @@ import {forwardRef, useEffect, useState} from "react";
 import AnimatedCard from "@/components/AnimatedCard";
 import {useAppContext} from "@/AppProvider";
 import {pickRandomCards} from "@/utils";
+import {ChatGPTComponent} from "@/components/ChatGPTComponent";
 
 
 export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
@@ -17,11 +18,11 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
     for (let i = 0; i < 3; i++) {
         const card = <AnimatedCard
             key={i}
-            width={365}
-            height={583}
+            width={280}
+            height={447}
             frontUrl="/decor-img/Card-middle.webp"
             backUrl={chosenCards[i] ? chosenCards[i].image : "/decor-img/Card-middle.webp"}
-            animation="CardFlipAnimation 3s forwards"
+            animation="CardFlipAnimation 2s forwards"
             resetFlipped={resetFlipped}
             onClickAction={() => handleCardFlip(i)}
         />
@@ -47,6 +48,12 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
     };
 
     useEffect(() => {
+        if (resetFlipped) {
+            setResetFlipped(false);
+        }
+    }, [resetFlipped]);
+
+    useEffect(() => {
 
         if (flippedCards.every(card => card)) {
             setTimeout(() => {
@@ -62,31 +69,30 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
                 <Medallion4/>
             </div>
             <div className="container">
-                <h2 className="tarot__title title title--secondary">Unveil Your Destiny, Card by Card</h2>
+                <h2 className="tarot__title title">Unveil Your Destiny, Card by Card...</h2>
                 <div className="tarot__cards-container">
                     { cards}
                 </div>
-                {isPredictionReady && (
-                    <div className="tarot__info-block">
-                        <div className="tarot__result">
-                            <h3 className="title title--third tarot__result-title">The Cards Have Spoken</h3>
-                            <p className="tarot__result-text">
-                                This card refers to an old Zen parable about how a sheep
-                                raised a lion cub and he thought he was a sheep until the
-                                old lion grabbed him and took him to a pond where he showed
-                                him his reflection. Many of us are like this lion—our self-image
-                                is formed not from our direct experience, but from the opinions
-                                of others.
-                            </p>
-                        </div>
-                        <button
-                            className="btn btn-try-again border-dashed"
-                            onClick={handleClick}
-                        >
-                            Revoke and Retry
-                        </button>
+                <ChatGPTComponent />
+                <div className={isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
+                    <div className="tarot__result">
+                        <h3 className="title title--third tarot__result-title">The Cards Have Spoken</h3>
+                        <p className="tarot__result-text">
+                            This card refers to an old Zen parable about how a sheep
+                            raised a lion cub and he thought he was a sheep until the
+                            old lion grabbed him and took him to a pond where he showed
+                            him his reflection. Many of us are like this lion—our self-image
+                            is formed not from our direct experience, but from the opinions
+                            of others.
+                        </p>
                     </div>
-                )}
+                    <button
+                        className="btn btn-try-again border-dashed"
+                        onClick={handleClick}
+                    >
+                        Revoke and Retry
+                    </button>
+                </div>
             </div>
         </section>
     );

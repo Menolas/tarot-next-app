@@ -14,7 +14,7 @@
     font-weight: 200;
     font-family: $font-family;
     color: $text-color;
-    background-color: #1e1e1e;
+    background-color: $form-input-bg;
     border: $border;
     border-radius: $border-radius;
 
@@ -24,7 +24,7 @@
     }
 
     &:-internal-autofill-selected {
-      background-color: #1e1e1e;
+      background-color: $form-input-bg;
     }
   }
 

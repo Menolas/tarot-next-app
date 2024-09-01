@@ -1,6 +1,6 @@
 import LoaderSvg from "../assets/svg/ouroboros.svg";
 
-export default function Loader() {
+export const Loader = () => {
     return (
         <div className="loader">
             <LoaderSvg />

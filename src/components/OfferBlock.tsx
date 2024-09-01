@@ -8,12 +8,19 @@ import {useEffect, useRef, useState} from "react";
 import AnimatedCard from "@/components/AnimatedCard";
 import {pickRandomCards} from "@/utils";
 import {useAppContext} from "@/AppProvider";
-import {Tarot} from "@/components/Tarot";
 
-export default function OfferBlock() {
+type OfferBlockProps = {
+    onScrollToTarot: () => void;
+    onScrollToLogin: () => void;
+};
+
+export const OfferBlock = ({
+   onScrollToTarot,
+   onScrollToLogin
+}: OfferBlockProps) => {
     const { state, setState } = useAppContext();
     const [isLoaded, setIsLoaded] = useState(false);
-    const tarotRef = useRef<HTMLDivElement>(null);
+    const [isDeckShaking, setIsDeckShaking] = useState(false);
 
     useEffect(() => {
         setIsLoaded(true);
@@ -26,59 +33,62 @@ export default function OfferBlock() {
             ...state,
             chosenCards,
         });
-        if (tarotRef.current) {
-            tarotRef.current.scrollIntoView({ behavior: "smooth" });
-        }
+        setIsDeckShaking(true);
+        setTimeout(() => {
+            onScrollToTarot();
+        }, 2000);
+
     };
 
     return (
-        <>
-            <section className={`offer-block ${isLoaded ? "loaded" : ""}`}>
-                {!isLoaded
-                    ? <div>Loading...</div>
-                    : (
-                        <>
-                            <SmokeAnimation/>
-                            <h1 className="offer-block__title title title--primary">
-                                <span>Discover</span>
-                                <span>Your</span>
-                                <span>Fate</span>
-                            </h1>
-                            <div className="offer-block__screen offer-block__screen--moon">
-                                <div className="moon"></div>
+        <section className={`offer-block ${isLoaded ? "loaded" : ""}`}>
+            {!isLoaded
+                ? <div>Loading...</div>
+                : (
+                    <>
+                        <SmokeAnimation/>
+                        <h1 className="offer-block__title title title--primary">
+                            <span>Discover</span>
+                            <span>Your</span>
+                            <span>Fate</span>
+                        </h1>
+                        <div className="offer-block__screen offer-block__screen--moon">
+                            <div className="moon"></div>
+                        </div>
+                        <div className="offer-block__screen offer-block__screen--cards">
+                            <div className="offer-block__screen-bg">
+                                <Medallion1 />
+                                <Medallion2 />
                             </div>
-                            <div className="offer-block__screen offer-block__screen--cards">
-                                <div className="offer-block__screen-bg">
-                                    <Medallion1 />
-                                    <Medallion2 />
+                            <div className="inner-wrap">
+                                <button
+                                    className="btn offer-block__btn offer-block__btn--left"
+                                    onClick={() => {
+                                        handleClick();
+                                    }}
+                                >
+                                    Embrace <br/>the Unknown
+                                </button>
+                                <div className="center">
+                                    <AnimatedCard
+                                        frontUrl="/decor-img/card.webp"
+                                        backUrl="/decor-img/card1.webp"
+                                        isDeckShaking={isDeckShaking}
+                                        animation="cardTwistAnimation 3s forwards"
+                                    />
+                                    <div className="hand"><Hand/></div>
                                 </div>
-                                <div className="inner-wrap">
-                                    <button
-                                        className="btn offer-block__btn offer-block__btn--left"
-                                        onClick={() => {
-                                            handleClick();
-                                        }}
-                                    >
-                                        Embrace <br/>the Unknown
-                                    </button>
-                                    <div className="center">
-                                        <AnimatedCard
-                                            frontUrl="/decor-img/card.webp"
-                                            backUrl="/decor-img/card1.webp"
-                                            animation="cardTwistAnimation 3s infinite"
-                                        />
-                                        <div className="hand"><Hand/></div>
-                                    </div>
-                                    <button className="btn offer-block__btn offer-block__btn--right">
-                                        Join the Circle <br/> of the Chosen
-                                    </button>
-                                </div>
+                                <button
+                                    className="btn offer-block__btn offer-block__btn--right"
+                                    onClick={onScrollToLogin}
+                                >
+                                    Join the Circle <br/> of the Chosen
+                                </button>
                             </div>
-                        </>
-                    )
-                }
-            </section>
-            <Tarot ref={tarotRef} />
-        </>
+                        </div>
+                    </>
+                )
+            }
+        </section>
     );
 };

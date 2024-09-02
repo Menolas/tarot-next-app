@@ -4,7 +4,7 @@ import Hand from "../assets/svg/hand.svg";
 import Medallion1 from "../assets/svg/medallion1.svg";
 import Medallion2 from "../assets/svg/medallion2.svg";
 import {SmokeAnimation} from "@/components/SmokeAnimation";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import AnimatedCard from "@/components/AnimatedCard";
 import {pickRandomCards} from "@/utils";
 import {useAppContext} from "@/AppProvider";
@@ -38,6 +38,7 @@ export const OfferBlock = ({
         setIsDeckShaking(true);
         setTimeout(() => {
             onScrollToTarot();
+            setIsDeckShaking(false);
         }, 2000);
 
     };

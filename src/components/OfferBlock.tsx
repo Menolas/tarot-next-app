@@ -32,6 +32,8 @@ export const OfferBlock = ({
         setState({
             ...state,
             chosenCards,
+            resetFlipped: true,
+            isPredictionReady: false,
         });
         setIsDeckShaking(true);
         setTimeout(() => {
@@ -74,7 +76,7 @@ export const OfferBlock = ({
                                         frontUrl="/decor-img/card.webp"
                                         backUrl="/decor-img/card1.webp"
                                         isDeckShaking={isDeckShaking}
-                                        animation="cardTwistAnimation 3s forwards"
+                                        animation="cardTwistAnimation 3s infinite"
                                     />
                                     <div className="hand"><Hand/></div>
                                 </div>

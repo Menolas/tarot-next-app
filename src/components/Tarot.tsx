@@ -10,8 +10,6 @@ import {ChatGPTComponent} from "@/components/ChatGPTComponent";
 export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
     const { state, setState } = useAppContext();
     const [flippedCards, setFlippedCards] = useState<boolean[]>([false, false, false]);
-    const [isPredictionReady, setIsPredictionReady] = useState(false);
-    const [resetFlipped, setResetFlipped] = useState(false);
 
     const chosenCards = state.chosenCards;
     let cards = [];
@@ -23,7 +21,7 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
             frontUrl="/decor-img/Card-middle.webp"
             backUrl={chosenCards[i] ? chosenCards[i].image : "/decor-img/Card-middle.webp"}
             animation="CardFlipAnimation 2s forwards"
-            resetFlipped={resetFlipped}
+            resetFlipped={state.resetFlipped}
             onClickAction={() => handleCardFlip(i)}
         />
         cards.push(card);
@@ -35,30 +33,39 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
         setState({
             ...state,
             chosenCards,
+            resetFlipped: true,
+            isPredictionReady: false,
         });
         setFlippedCards([false, false, false]);
-        setIsPredictionReady(false);
-        setResetFlipped(true);
     };
 
     const handleCardFlip = (index: number) => {
-        const newFlippedCards = [...flippedCards];
-        newFlippedCards[index] = true;
-        setFlippedCards(newFlippedCards);
+        if (chosenCards.length > 0) {
+            const newFlippedCards = [...flippedCards];
+            newFlippedCards[index] = true;
+            setFlippedCards(newFlippedCards);
+        }
+        console.log(flippedCards)
     };
 
     useEffect(() => {
-        if (resetFlipped) {
-            setResetFlipped(false);
+        if (state.resetFlipped) {
+            setState({
+                ...state,
+                resetFlipped: false,
+            });
         }
-    }, [resetFlipped]);
+    }, [state.resetFlipped]);
 
     useEffect(() => {
 
         if (flippedCards.every(card => card)) {
             setTimeout(() => {
-                setIsPredictionReady(true);
-            }, 3000)
+                setState({
+                    ...state,
+                    isPredictionReady: true,
+                });
+            }, 2000)
         }
     }, [flippedCards]);
 
@@ -74,7 +81,7 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
                     { cards}
                 </div>
                 <ChatGPTComponent />
-                <div className={isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
+                <div className={state.isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
                     <div className="tarot__result">
                         <h3 className="title title--third tarot__result-title">The Cards Have Spoken</h3>
                         <p className="tarot__result-text">

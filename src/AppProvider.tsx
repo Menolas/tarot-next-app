@@ -5,6 +5,8 @@ import {tarots} from "@/data";
 type AppState = {
     tarots: Card[];
     chosenCards: Card[];
+    resetFlipped: boolean;
+    isPredictionReady: boolean;
 };
 
 type AppContextType = {
@@ -16,6 +18,8 @@ const defaultState: AppContextType = {
     state: {
         tarots: tarots,
         chosenCards: [],
+        resetFlipped: false,
+        isPredictionReady: false,
     },
     setState: () => {},
 };

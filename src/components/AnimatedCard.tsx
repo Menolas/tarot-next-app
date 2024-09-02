@@ -42,7 +42,7 @@ export default function AnimatedCard({
             setIsAnimating(false);
             setIsFlipped(!isFlipped);
 
-        }, 3000);
+        }, 2000);
     };
 
     const animationStyle: React.CSSProperties = {

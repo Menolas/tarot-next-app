@@ -4,8 +4,6 @@ import {forwardRef, useEffect, useState} from "react";
 import AnimatedCard from "@/components/AnimatedCard";
 import {useAppContext} from "@/AppProvider";
 import {pickRandomCards} from "@/utils";
-import {ChatGPTComponent} from "@/components/ChatGPTComponent";
-
 
 export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
     const { state, setState } = useAppContext();
@@ -45,7 +43,6 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
             newFlippedCards[index] = true;
             setFlippedCards(newFlippedCards);
         }
-        console.log(flippedCards)
     };
 
     useEffect(() => {
@@ -80,22 +77,17 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
                 <div className="tarot__cards-container">
                     { cards}
                 </div>
-                <ChatGPTComponent />
                 <div className={state.isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
                     <div className="tarot__result">
-                        <h3 className="title title--third tarot__result-title">The Cards Have Spoken</h3>
-                        <p className="tarot__result-text">
-                            This card refers to an old Zen parable about how a sheep
-                            raised a lion cub and he thought he was a sheep until the
-                            old lion grabbed him and took him to a pond where he showed
-                            him his reflection. Many of us are like this lion—our self-image
-                            is formed not from our direct experience, but from the opinions
-                            of others.
-                        </p>
+                        <h3 className="title title--third tarot__result-title">
+                            {state.response ? 'The Cards Have Spoken' : "The cards are still silent..."}
+                        </h3>
+                        {state.response && <p className="tarot__result-text">{state.response}</p>}
                     </div>
                     <button
                         className="btn btn-try-again border-dashed"
                         onClick={handleClick}
+                        disabled={state.isResponseLoading}
                     >
                         Revoke and Retry
                     </button>

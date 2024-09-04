@@ -69,6 +69,7 @@ export const OfferBlock = ({
                                     onClick={() => {
                                         handleClick();
                                     }}
+                                    disabled={state.isResponseLoading}
                                 >
                                     Embrace <br/>the Unknown
                                 </button>

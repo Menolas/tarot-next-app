@@ -540,6 +540,11 @@ img {
   background-size: contain;
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (min-width: 900px) {
   .btn {
     font-size: 35px;

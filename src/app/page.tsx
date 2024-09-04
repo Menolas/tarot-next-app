@@ -7,7 +7,6 @@ import {Loader} from "@/components/Loader";
 import {useEffect, useRef, useState} from "react";
 import {Header} from "@/components/Header";
 import {AppProvider} from "@/AppProvider";
-import {ChatGPTComponent} from "@/components/ChatGPTComponent";
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);

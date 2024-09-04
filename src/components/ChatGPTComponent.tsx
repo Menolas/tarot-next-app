@@ -1,21 +1,25 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
+import {useAppContext} from "@/AppProvider";
 
 export const ChatGPTComponent = () => {
+    const { state, setState } = useAppContext();
     const [question, setQuestion] = useState('');
     const [response, setResponse] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    useEffect(() => {
+        let prompt = `Can you reveal my fate by interpreting the meaning of the ${state.chosenCards[0].name}, ${state.chosenCards[1].name}, and ${state.chosenCards[2].name} I drew from the tarot deck?`;
+        setQuestion(prompt);
+    }, [state.chosenCards]);
 
     const handleAsk = async () => {
         if (!question) {
             alert('Please enter a question');
             return;
         }
-
-        const apiKey = "bklgjsdfg;sdgusd;ogudsgu"
-
+        const apiKey = "bklgjsdfg;sdgusd;ogudsgu";
         setIsLoading(true);
         setResponse('Thinking...');
-
         try {
             const res = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
@@ -42,13 +46,6 @@ export const ChatGPTComponent = () => {
 
     return (
         <div id="chat-container">
-            <input
-                type="hidden"
-                id="question"
-                placeholder="Type your question here..."
-                value={question}
-                onChange={(e) => setQuestion(e.target.value)}
-            />
             <button onClick={handleAsk} disabled={isLoading}>
                 Ask
             </button>

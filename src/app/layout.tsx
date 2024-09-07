@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+console.log('apiKey:', process.env.CONNECTION_OPEN_AI_KEY);
 import type { Metadata } from "next";
 import Head from "next/head";
 import { Raleway } from "next/font/google";
@@ -19,6 +23,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('apiKey:', process.env.CONNECTION_OPEN_AI_KEY);
+
   return (
     <html lang="en">
     <Head>

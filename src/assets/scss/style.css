@@ -495,6 +495,7 @@ img {
   position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: self-start;
   gap: 8%;
   z-index: 1;
   filter: blur(0);

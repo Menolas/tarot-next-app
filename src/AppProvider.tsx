@@ -2,6 +2,7 @@ import React, {createContext, ReactNode, useContext, useEffect, useState} from '
 import {Card} from "@/types/Types";
 import {tarots} from "@/data";
 import {getQuestionPrompt} from "@/utils";
+import {handleAsk} from "@/handleAsk";
 
 type AppState = {
     tarots: Card[];
@@ -42,49 +43,15 @@ export function AppProvider({ children }: AppProviderProps) {
         if (state.chosenCards.length > 0) {
             setState({...state, isResponseLoading: true});
             const prompt = getQuestionPrompt(state.chosenCards);
-            handleAsk(prompt).then(() => {
-                setState(prevState => ({...prevState, isResponseLoading: false}));
+            handleAsk(prompt).then(response => {
+                setState(prevState => ({
+                    ...prevState,
+                    isResponseLoading: false,
+                    response: response,
+                }));
             });
         }
     }, [state.chosenCards]);
-
-    const handleAsk = async (question: string) => {
-
-        const apiKey = "bklgjsdfg;sdgusd;ogudsgu";
-        try {
-            const res = await fetch('https://api.openai.com/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: 'gpt-3.5-turbo', // or 'gpt-3.5-turbo' for GPT-3.5
-                    messages: [{ role: 'user', content: question }]
-                })
-            });
-
-            const data = await res.json();
-            if (data.choices && data.choices[0] && data.choices[0].message) {
-                const answer = data.choices[0].message.content.trim();
-                setState(prevState => ({
-                    ...prevState,
-                    response: answer
-                }));
-            } else {
-                setState(prevState => ({
-                    ...prevState,
-                    response: 'No response received.'
-                }));
-            }
-        } catch (error) {
-            setState(prevState => ({
-                ...prevState,
-                response: 'Sorry, something went wrong.'
-            }));
-            console.error('Error:', error);
-        }
-    };
 
     return (
         <AppContext.Provider value={{ state, setState }}>

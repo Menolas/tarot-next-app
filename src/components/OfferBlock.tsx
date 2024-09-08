@@ -62,15 +62,17 @@ export const OfferBlock = ({
                                 <Medallion2 />
                             </div>
                             <div className="inner-wrap">
-                                <button
-                                    className="btn offer-block__btn offer-block__btn--left"
-                                    onClick={() => {
-                                        handleClick();
-                                    }}
-                                    disabled={state.isResponseLoading}
-                                >
-                                    Shake the Deck
-                                </button>
+                                <div className="offer-block__btn offer-block__btn--left">
+                                    <button
+                                        className="btn border-dashed"
+                                        onClick={() => {
+                                            handleClick();
+                                        }}
+                                        disabled={state.isResponseLoading}
+                                    >
+                                        Shake the Deck
+                                    </button>
+                                </div>
                                 <div
                                     className="center"
                                     onClick={() => {
@@ -85,12 +87,14 @@ export const OfferBlock = ({
                                     />
                                     <div className="hand"><Hand/></div>
                                 </div>
-                                <button
-                                    className="btn offer-block__btn offer-block__btn--right"
-                                    onClick={onScrollToLogin}
-                                >
-                                    Join the Circle <br/> of the Chosen
-                                </button>
+                                <div className="offer-block__btn offer-block__btn--right">
+                                    <button
+                                        className="btn border-dashed"
+                                        onClick={onScrollToLogin}
+                                    >
+                                        Join the Circle <br/> of the Chosen
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </>

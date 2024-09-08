@@ -1,7 +1,7 @@
 .tarot {
   position: relative;
-  padding-top: 120px;
-  padding-bottom: 80px;
+  padding-top: 40px;
+  padding-bottom: 60px;
   background-image: url("/decor-img/hands-and-candles.webp");
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,6 +73,18 @@
     z-index: 1;
   }
 
+  .animated-card {
+    width: 120px !important;
+    height: 191px !important;
+
+    &:first-child {
+      transform: translate(20px, 35px) rotate(-14deg);
+    }
+    &:last-child {
+      transform: translate(-20px, 35px) rotate(14deg);
+    }
+  }
+
   .tarot__shake-btn {
     position: relative;
     margin-bottom: 2rem;
@@ -89,6 +101,7 @@
   .tarot__info-block {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: self-start;
     gap: 8%;
@@ -116,5 +129,22 @@
     flex: 1 1 40%;
     text-align: left;
     font-size: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  .tarot {
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    .animated-card {
+      width: 280px !important;
+      height: 447px !important;
+      transform: none !important;
+    }
+
+    .tarot__info-block {
+      flex-direction: row;
+    }
   }
 }

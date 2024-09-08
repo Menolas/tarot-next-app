@@ -8,6 +8,7 @@
   border-radius: $border-radius;
   background-color: transparent;
   box-shadow: none;
+  transition: all 0.5s ease-in-out;
 }
 
 .btn-try-again {
@@ -23,6 +24,15 @@
 .btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.btn:hover {
+  color: rgba(250, 225, 163, 0.9);
+  transform: scale(0.99);
+  border-color: rgba(250, 225, 163, 0.65);
+  &.border-dashed {
+    border-image: repeating-linear-gradient(45deg, rgba(250, 225, 163, 0.65), transparent, rgba(250, 225, 163, 0.65) 10px) 10 !important;
+  }
 }
 
 @media (min-width: 900px) {

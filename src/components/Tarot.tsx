@@ -19,7 +19,6 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
             frontUrl="/decor-img/Card-middle.webp"
             backUrl={chosenCards[i] ? chosenCards[i].image : "/decor-img/Card-middle.webp"}
             animation="CardFlipAnimation 2s forwards"
-            resetFlipped={state.resetFlipped}
             onClickAction={() => handleCardFlip(i)}
         />
         cards.push(card);
@@ -28,13 +27,13 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
 
     const handleClick = () => {
         const chosenCards = pickRandomCards({ cards: state.tarots, count: 3 });
-        setState({
-            ...state,
+        setState(prevState => ({
+            ...prevState,
             chosenCards,
-            resetFlipped: true,
-            isPredictionReady: false,
-        });
+        }));
+
         setFlippedCards([false, false, false]);
+        console.log(state);
     };
 
     const handleCardFlip = (index: number) => {
@@ -44,15 +43,6 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
             setFlippedCards(newFlippedCards);
         }
     };
-
-    useEffect(() => {
-        if (state.resetFlipped) {
-            setState({
-                ...state,
-                resetFlipped: false,
-            });
-        }
-    }, [state.resetFlipped]);
 
     useEffect(() => {
 
@@ -73,10 +63,11 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
                 <Medallion4/>
             </div>
             <div className="container">
-                <h2 className="tarot__title title">Unveil Your Destiny, Card by Card...</h2>
+
                 <div className="tarot__cards-container">
                     { cards}
                 </div>
+                {!state.isPredictionReady && <h2 className="tarot__title title">Unveil Your Destiny, Card by Card...</h2>}
                 <div className={state.isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
                     <div className="tarot__result">
                         <h3 className="title title--third tarot__result-title">

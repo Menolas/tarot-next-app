@@ -12,6 +12,6 @@ export const pickRandomCards = ({cards, count}: {cards: Card[]; count: number}) 
 }
 
 export const getQuestionPrompt = (chosenCards: Card[]) => {
-    return `Can you reveal my fate by interpreting the meaning of the ${chosenCards[0].name}, ${chosenCards[1].name}, and ${chosenCards[2].name} I drew from the tarot deck?`;
+    return `Can you reveal my fate by interpreting the meaning of the ${chosenCards[0].name}, ${chosenCards[1].name}, and ${chosenCards[2].name} I drew from the tarot deck? Please drop the disclaimer about the tarot cards being for entertainment purposes only. Write in some confident and considering way and add some mistery`;
 
 }

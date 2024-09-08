@@ -29,12 +29,10 @@ export const OfferBlock = ({
 
     const handleClick = () => {
         const chosenCards = pickRandomCards({ cards: state.tarots, count: 3 });
-        setState({
-            ...state,
+        setState(prevState => ({
+            ...prevState,
             chosenCards,
-            resetFlipped: true,
-            isPredictionReady: false,
-        });
+        }));
         setIsDeckShaking(true);
         setTimeout(() => {
             onScrollToTarot();

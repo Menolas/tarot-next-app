@@ -36,7 +36,7 @@ export default function Home() {
             ? <Loader />
             : (
                 <>
-                  <Header/>
+                  <Header onScrollToLogin={scrollToLogin}/>
                   <main className="">
                     <OfferBlock
                         onScrollToTarot={scrollToTarot}

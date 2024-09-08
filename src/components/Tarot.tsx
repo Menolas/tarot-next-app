@@ -31,9 +31,7 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
             ...prevState,
             chosenCards,
         }));
-
         setFlippedCards([false, false, false]);
-        console.log(state);
     };
 
     const handleCardFlip = (index: number) => {

@@ -1,17 +1,18 @@
-import Link from "next/link";
+type MainMenuProps = {
+    onScrollToLogin: () => void;
+};
 
-export default function MainMenu() {
+export default function MainMenu({ onScrollToLogin }: MainMenuProps) {
     return (
         <nav className="main-menu">
             <ul className="main-menu__list">
                 <li className="main-menu__item">
-                    <Link className="main-menu__link" href="/">Home</Link>
-                </li>
-                <li className="main-menu__item">
-                    <Link className="main-menu__link" href="/services">Services</Link>
-                </li>
-                <li className="main-menu__item">
-                    <Link className="main-menu__link" href="/contacts">Contacts</Link>
+                    <button
+                        className="btn main-menu__link"
+                        onClick={onScrollToLogin}
+                    >
+                        Join the Circle of the Chosen
+                    </button>
                 </li>
             </ul>
         </nav>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
+import {useAppContext} from "@/AppProvider";
 
 type PropsType = {
     width?: number;
@@ -7,7 +8,6 @@ type PropsType = {
     frontUrl: string;
     backUrl: string;
     animation: string;
-    resetFlipped?: boolean;
     isDeckShaking?: boolean;
     onClickAction?: () => void;
 };
@@ -18,19 +18,24 @@ export default function AnimatedCard({
  frontUrl,
  backUrl,
  animation,
- resetFlipped,
  isDeckShaking,
  onClickAction,
 }: PropsType) {
+    const { state, setState } = useAppContext();
     const [isAnimating, setIsAnimating] = useState(false);
     const [isFlipped, setIsFlipped] = useState(false);
 
-
     useEffect(() => {
-        if (resetFlipped) {
+        console.log(state.resetFlipped + " resetFlipped");
+        console.log(isFlipped + " isFlipped");
+        if (state.resetFlipped) {
             setIsFlipped(false);
+            setState(prevState => ({
+                ...prevState,
+                resetFlipped: false, // Reset the flag after flipping the cards
+            }));
         }
-    }, [resetFlipped]);
+    }, [state.resetFlipped]);
 
     const handleClick = () => {
         setIsAnimating(true);

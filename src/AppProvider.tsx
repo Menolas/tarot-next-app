@@ -41,7 +41,13 @@ export function AppProvider({ children }: AppProviderProps) {
 
     useEffect(() => {
         if (state.chosenCards.length > 0) {
-            setState({...state, isResponseLoading: true});
+            setState(prevState => ({
+                ...prevState,
+                resetFlipped: true,
+                isPredictionReady: false,
+                isResponseLoading: true,
+            }));
+
             const prompt = getQuestionPrompt(state.chosenCards);
             handleAsk(prompt).then(response => {
                 setState(prevState => ({

@@ -23,16 +23,13 @@ export async function POST(request: Request) {
         });
 
         const data = await res.json();
+        console.log(data);
         if (data.choices && data.choices[0] && data.choices[0].message) {
             return NextResponse.json({ content: data.choices[0].message.content.trim() });
         } else {
             return NextResponse.json({ error: 'No response received.' });
         }
 
-        // const text = await res.text();
-        // console.log('Full Response from API:', text);
-        //
-        // return NextResponse.json({ response: text });
     } catch (error) {
         console.error('Error:', error);
         return NextResponse.json({ error: 'Sorry, something went wrong.' });

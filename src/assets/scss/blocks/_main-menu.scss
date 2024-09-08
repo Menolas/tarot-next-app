@@ -11,6 +11,15 @@
 
   .main-menu__link {
     @include link-style;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .main-menu {
+
+    .main-menu__link {
+      padding: 0.5rem 1rem;
+    }
   }
 }

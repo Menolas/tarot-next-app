@@ -69,9 +69,14 @@ export const OfferBlock = ({
                                     }}
                                     disabled={state.isResponseLoading}
                                 >
-                                    Embrace <br/>the Unknown
+                                    Shake the Deck
                                 </button>
-                                <div className="center">
+                                <div
+                                    className="center"
+                                    onClick={() => {
+                                        handleClick();
+                                    }}
+                                >
                                     <AnimatedCard
                                         frontUrl="/decor-img/card.webp"
                                         backUrl="/decor-img/card1.webp"

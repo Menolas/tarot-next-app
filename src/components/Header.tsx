@@ -1,11 +1,15 @@
 import Logo from "@/components/Logo";
 import MainMenu from "@/components/MainMenu";
 
-export const Header = () => {
+type HeaderProps = {
+    onScrollToLogin: () => void;
+};
+
+export const Header = ({onScrollToLogin}: HeaderProps) => {
     return (
         <header className="main-header container">
             <Logo />
-            <MainMenu />
+            <MainMenu onScrollToLogin={onScrollToLogin} />
         </header>
     );
 };

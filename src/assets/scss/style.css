@@ -254,7 +254,7 @@ img {
   display: flex;
   align-items: center;
   padding-top: 1rem;
-  z-index: 1;
+  z-index: 100;
 }
 
 .main-menu {
@@ -425,6 +425,7 @@ img {
 
 .tarot {
   position: relative;
+  padding-top: 120px;
   padding-bottom: 80px;
   background-image: url("/decor-img/hands-and-candles.webp");
   background-repeat: no-repeat;

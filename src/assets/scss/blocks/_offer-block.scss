@@ -10,7 +10,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    height: 90%;
+    height: 80%;
     background-image: linear-gradient(
                     to top,
                     $dark-bg 0%,
@@ -60,11 +60,12 @@
     .inner-wrap {
       position: absolute;
       left: 50%;
-      top: 24%;
+      bottom: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
+      height: 70%;
       transform: translate(-50%, 0);
     }
 
@@ -104,6 +105,9 @@
       svg {
         width: 130px;
         height: 103px;
+        path {
+          fill: $primary;
+        }
       }
     }
   }
@@ -117,8 +121,9 @@
     justify-content: center;
     gap: 1rem;
     margin-top: 0;
+    padding: 0 1.2rem;
     width: 100%;
-    font-size: 36px;
+    font-size: 42px;
     z-index: 1;
     transform: translate(-50%, -100%);
   }
@@ -131,7 +136,7 @@
   &.loaded {
 
     .offer-block__title {
-      animation: offerBlockTitleAnimation 3s forwards;
+      animation: offerBlockTitleAnimationMobile 3s forwards;
       animation-iteration-count: 1;
       animation-delay: 4s;
     }
@@ -150,28 +155,52 @@
   }
 
   .offer-block__screen-bg {
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    padding-top: 100px;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10%;
+    gap: 2rem;
     z-index: 0;
 
+    .offer-block__screen-bg-inner-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
     svg {
-      width: 400px;
-      height: 400px;
-      opacity: 0.4;
-      transform: translate(0, -140px);
+      flex: 1 1 48%;
+      width: 48%;
+      max-width: 48vw;
+      max-height: 48vw;
+      opacity: 0.3;
+
+      path {
+        fill: #443523;
+      }
     }
   }
 }
 
 @media (min-width: 900px) {
   .offer-block {
+
+    &::before {
+      background-image: linear-gradient(
+                      to top,
+                      $dark-bg 0%,
+                      rgba(9, 9, 9, 0.92) 13%,
+                      rgba(9, 9, 9, 0.5) 30%,
+                      rgba(9, 9, 9, 0) 96%,
+      );
+    }
+
     .offer-block__title {
       gap: 2rem;
+      padding: 0;
       font-size: 100px;
     }
 
@@ -190,6 +219,8 @@
 
       .inner-wrap {
         top: 32%;
+        bottom: unset;
+        height: unset;
       }
 
       .hand {
@@ -213,6 +244,12 @@
 
     &.loaded {
 
+      .offer-block__title {
+        animation: offerBlockTitleAnimation 3s forwards;
+        animation-iteration-count: 1;
+        animation-delay: 4s;
+      }
+
       .moon {
         animation: moonAnimation 6s forwards;
         animation-iteration-count: 1;
@@ -223,6 +260,28 @@
         animation: offerBlockCardBlockAnimation 5s forwards;
         animation-iteration-count: 1;
         animation-delay: 8s;
+      }
+    }
+
+    .offer-block__screen-bg {
+      align-items: center;
+      justify-content: center;
+      flex-wrap: nowrap;
+      gap: 10%;
+      padding: 0;
+      z-index: 0;
+
+      svg {
+        width: 400px;
+        height: 400px;
+        transform: translate(0, -140px);
+      }
+
+      svg:nth-child(3),
+      svg:nth-child(4),
+      svg:nth-child(5),
+      svg:nth-child(6) {
+        display: none;
       }
     }
   }

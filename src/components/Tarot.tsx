@@ -65,7 +65,9 @@ export const Tarot = forwardRef<HTMLDivElement>((props, ref) => {
                 <div className="tarot__cards-container">
                     { cards}
                 </div>
-                {!state.isPredictionReady && <h2 className="tarot__title title">Unveil Your Destiny, Card by Card...</h2>}
+                {state.chosenCards.length > 0 && !state.isPredictionReady && (
+                    <h2 className="tarot__title title">Unveil Your Destiny, Card by Card...</h2>
+                )}
                 <div className={state.isPredictionReady ? "tarot__info-block" : "tarot__info-block blur"}>
                     <div className="tarot__result">
                         <h3 className="title title--third tarot__result-title">

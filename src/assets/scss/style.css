@@ -49,6 +49,16 @@
     transform: translate(-50%, 0);
   }
 }
+@keyframes offerBlockTitleAnimationMobile {
+  from {
+    top: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    top: 20%;
+    transform: translate(-50%, 0);
+  }
+}
 @keyframes moonAnimation {
   30% {
     top: 32.5%;
@@ -330,7 +340,7 @@ img {
   left: 0;
   right: 0;
   width: 100%;
-  height: 90%;
+  height: 80%;
   background-image: linear-gradient(to top, rgb(9, 9, 9) 0%, rgba(9, 9, 9, 0.92) 13%, rgba(9, 9, 9, 0) 96%);
   z-index: 0;
 }
@@ -371,11 +381,12 @@ img {
 .offer-block .offer-block__screen--cards .inner-wrap {
   position: absolute;
   left: 50%;
-  top: 24%;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 70%;
   transform: translate(-50%, 0);
 }
 .offer-block .offer-block__screen--cards .center {
@@ -411,6 +422,9 @@ img {
   width: 130px;
   height: 103px;
 }
+.offer-block .offer-block__screen--cards .hand svg path {
+  fill: rgba(250, 225, 163, 0.75);
+}
 .offer-block .offer-block__title {
   position: absolute;
   left: 50%;
@@ -420,8 +434,9 @@ img {
   justify-content: center;
   gap: 1rem;
   margin-top: 0;
+  padding: 0 1.2rem;
   width: 100%;
-  font-size: 36px;
+  font-size: 42px;
   z-index: 1;
   transform: translate(-50%, -100%);
 }
@@ -430,7 +445,7 @@ img {
   height: 307px !important;
 }
 .offer-block.loaded .offer-block__title {
-  animation: offerBlockTitleAnimation 3s forwards;
+  animation: offerBlockTitleAnimationMobile 3s forwards;
   animation-iteration-count: 1;
   animation-delay: 4s;
 }
@@ -445,25 +460,39 @@ img {
   animation-delay: 8s;
 }
 .offer-block .offer-block__screen-bg {
+  display: flex;
+  flex-direction: column;
   position: absolute;
+  padding-top: 100px;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10%;
+  gap: 2rem;
   z-index: 0;
 }
+.offer-block .offer-block__screen-bg .offer-block__screen-bg-inner-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 .offer-block .offer-block__screen-bg svg {
-  width: 400px;
-  height: 400px;
-  opacity: 0.4;
-  transform: translate(0, -140px);
+  flex: 1 1 48%;
+  width: 48%;
+  max-width: 48vw;
+  max-height: 48vw;
+  opacity: 0.3;
+}
+.offer-block .offer-block__screen-bg svg path {
+  fill: #443523;
 }
 
 @media (min-width: 900px) {
+  .offer-block::before {
+    background-image: linear-gradient(to top, rgb(9, 9, 9) 0%, rgba(9, 9, 9, 0.92) 13%, rgba(9, 9, 9, 0.5) 30%, rgba(9, 9, 9, 0) 96%);
+  }
   .offer-block .offer-block__title {
     gap: 2rem;
+    padding: 0;
     font-size: 100px;
   }
   .offer-block .moon {
@@ -478,6 +507,8 @@ img {
   }
   .offer-block .offer-block__screen--cards .inner-wrap {
     top: 32%;
+    bottom: unset;
+    height: unset;
   }
   .offer-block .offer-block__screen--cards .hand {
     margin-top: 2.25rem;
@@ -493,6 +524,11 @@ img {
     width: 365px !important;
     height: 450px !important;
   }
+  .offer-block.loaded .offer-block__title {
+    animation: offerBlockTitleAnimation 3s forwards;
+    animation-iteration-count: 1;
+    animation-delay: 4s;
+  }
   .offer-block.loaded .moon {
     animation: moonAnimation 6s forwards;
     animation-iteration-count: 1;
@@ -502,6 +538,25 @@ img {
     animation: offerBlockCardBlockAnimation 5s forwards;
     animation-iteration-count: 1;
     animation-delay: 8s;
+  }
+  .offer-block .offer-block__screen-bg {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10%;
+    padding: 0;
+    z-index: 0;
+  }
+  .offer-block .offer-block__screen-bg svg {
+    width: 400px;
+    height: 400px;
+    transform: translate(0, -140px);
+  }
+  .offer-block .offer-block__screen-bg svg:nth-child(3),
+  .offer-block .offer-block__screen-bg svg:nth-child(4),
+  .offer-block .offer-block__screen-bg svg:nth-child(5),
+  .offer-block .offer-block__screen-bg svg:nth-child(6) {
+    display: none;
   }
 }
 .tarot {
@@ -553,6 +608,7 @@ img {
   position: relative;
   margin-bottom: 2rem;
   font-size: 26px;
+  z-index: 5;
 }
 .tarot .tarot__cards-container {
   position: relative;
@@ -589,12 +645,15 @@ img {
   flex-direction: column;
   justify-content: space-between;
   align-items: self-start;
-  gap: 8%;
+  gap: 1rem;
+  height: auto;
   z-index: 1;
   filter: blur(0);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
 }
 .tarot .tarot__info-block.blur {
+  height: 0;
   filter: blur(5px);
 }
 .tarot .tarot__result {
@@ -607,7 +666,8 @@ img {
   text-align: left;
 }
 .tarot .btn-try-again {
-  flex: 1 1 40%;
+  flex: 1 1 30%;
+  min-width: 100px;
   text-align: left;
   font-size: 30px;
 }
@@ -624,6 +684,11 @@ img {
   }
   .tarot .tarot__info-block {
     flex-direction: row;
+    gap: 2rem;
+  }
+  .tarot .btn-try-again {
+    min-width: 434px;
+    max-width: 500px;
   }
 }
 .btn {

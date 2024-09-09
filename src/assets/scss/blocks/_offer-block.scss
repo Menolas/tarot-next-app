@@ -41,16 +41,18 @@
 
   .moon {
     position: absolute;
-    top: 22.5%;
+    top: 50%;
     left: 50%;
     right: 0;
-    width: 200px;
-    height: 200px;
+    width: 70vw;
+    height: 70vw;
+    max-width: 513px;
+    max-height: 513px;
     background-image: url("/decor-img/moon.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     opacity: 0;
     z-index: 0;
   }

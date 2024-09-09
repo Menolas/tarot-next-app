@@ -4,7 +4,7 @@
   background-color: rgb(9, 9, 9);
 
   .main-footer__copyright {
-    padding-left: 120px;
+    text-align: center;
     .main-footer__link {
       @include link-style;
       color: $primary;
@@ -16,16 +16,45 @@
     bottom: 0;
 
     &--1 {
-      left: 2rem;
+      left: 0;
     }
 
     &--2 {
-      right: 2rem;
+      right: 0;
     }
 
     &--3 {
-      left: 4rem;
+      left: 2rem;
       bottom: 5rem;
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .main-footer {
+    .main-footer__copyright {
+      padding-left: 120px;
+      text-align: left;
+      .main-footer__link {
+        font-size: 1.2rem;
+      }
+    }
+    .shineEffect {
+      bottom: 0;
+
+      &--1 {
+        left: 2rem;
+      }
+
+      &--2 {
+        right: 2rem;
+      }
+
+      &--3 {
+        left: 4rem;
+        bottom: 5rem;
+      }
     }
   }
 }

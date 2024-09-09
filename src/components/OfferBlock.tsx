@@ -3,6 +3,10 @@
 import Hand from "../assets/svg/hand.svg";
 import Medallion1 from "../assets/svg/medallion1.svg";
 import Medallion2 from "../assets/svg/medallion2.svg";
+import Medallion3 from "../assets/svg/medallion3.svg";
+import Medallion4 from "../assets/svg/medallion4.svg";
+import Medallion5 from "../assets/svg/medallion5.svg";
+import Medallion6 from "../assets/svg/medallion6.svg";
 import {SmokeAnimation} from "@/components/SmokeAnimation";
 import {useEffect, useState} from "react";
 import AnimatedCard from "@/components/AnimatedCard";
@@ -58,8 +62,18 @@ export const OfferBlock = ({
                         </div>
                         <div className="offer-block__screen offer-block__screen--cards">
                             <div className="offer-block__screen-bg">
-                                <Medallion1 />
-                                <Medallion2 />
+                                <div className="offer-block__screen-bg-inner-wrap">
+                                    <Medallion1/>
+                                    <Medallion2/>
+                                </div>
+                                <div className="offer-block__screen-bg-inner-wrap">
+                                    <Medallion3/>
+                                    <Medallion4/>
+                                </div>
+                                <div className="offer-block__screen-bg-inner-wrap">
+                                    <Medallion5/>
+                                    <Medallion6/>
+                                </div>
                             </div>
                             <div className="inner-wrap">
                                 <div className="offer-block__btn offer-block__btn--left">

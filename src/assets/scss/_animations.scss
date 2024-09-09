@@ -59,6 +59,17 @@
   }
 }
 
+@keyframes offerBlockTitleAnimationMobile {
+  from {
+    top: 0;
+    transform: translate(-50%, -100%);
+  }
+  to {
+    top: 20%;
+    transform: translate(-50%, 0);
+  }
+}
+
 @keyframes moonAnimation {
   30% {
     top: 32.5%;

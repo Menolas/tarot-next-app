@@ -77,14 +77,14 @@
 }
 @keyframes moonAnimationMobile {
   30% {
-    top: 22.5%;
+    top: 50%;
     opacity: 1;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
   }
   70% {
-    top: 22.5%;
+    top: 50%;
     opacity: 0.8;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
   }
   100% {
     top: -20px;
@@ -253,9 +253,6 @@ img {
 .shineEffect svg path {
   fill: rgba(250, 225, 163, 0.45);
 }
-.shineEffect svg[class*=butterfly] path[class*=shine] {
-  animation: shivering 0.2s infinite;
-}
 .shineEffect svg[class*=twink] {
   transform: rotate(-120deg);
 }
@@ -362,16 +359,18 @@ img {
 }
 .offer-block .moon {
   position: absolute;
-  top: 22.5%;
+  top: 50%;
   left: 50%;
   right: 0;
-  width: 200px;
-  height: 200px;
+  width: 70vw;
+  height: 70vw;
+  max-width: 513px;
+  max-height: 513px;
   background-image: url("/decor-img/moon.webp");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   opacity: 0;
   z-index: 0;
 }
@@ -661,6 +660,7 @@ img {
   padding: 1rem;
   border: 1px solid rgba(250, 225, 163, 0.35);
   border-radius: 0.5rem;
+  background-color: #1e1e1e;
 }
 .tarot .tarot__result-title {
   text-align: left;
@@ -793,8 +793,8 @@ img {
 
 .login {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 0;
+  padding-bottom: 40px;
   background-image: url("/decor-img/face.webp");
   background-size: cover;
   background-repeat: no-repeat;
@@ -829,18 +829,28 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  padding: 3rem 5rem;
+  padding: 1.5rem;
   max-width: 740px;
+  width: 100%;
   border-radius: 0.5rem;
 }
 
+@media (min-width: 900px) {
+  .login {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .login .form--login {
+    padding: 3rem 5rem;
+  }
+}
 .main-footer {
   position: relative;
   padding-top: 2rem;
   background-color: rgb(9, 9, 9);
 }
 .main-footer .main-footer__copyright {
-  padding-left: 120px;
+  text-align: center;
 }
 .main-footer .main-footer__copyright .main-footer__link {
   display: inline-block;
@@ -854,16 +864,39 @@ img {
   bottom: 0;
 }
 .main-footer .shineEffect--1 {
-  left: 2rem;
+  left: 0;
 }
 .main-footer .shineEffect--2 {
-  right: 2rem;
+  right: 0;
 }
 .main-footer .shineEffect--3 {
-  left: 4rem;
+  left: 2rem;
   bottom: 5rem;
+  display: none;
 }
 
+@media (min-width: 900px) {
+  .main-footer .main-footer__copyright {
+    padding-left: 120px;
+    text-align: left;
+  }
+  .main-footer .main-footer__copyright .main-footer__link {
+    font-size: 1.2rem;
+  }
+  .main-footer .shineEffect {
+    bottom: 0;
+  }
+  .main-footer .shineEffect--1 {
+    left: 2rem;
+  }
+  .main-footer .shineEffect--2 {
+    right: 2rem;
+  }
+  .main-footer .shineEffect--3 {
+    left: 4rem;
+    bottom: 5rem;
+  }
+}
 .animated-card {
   perspective: 1000px;
   cursor: pointer;

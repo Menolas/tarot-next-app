@@ -3,7 +3,7 @@
     "metaTitle": "Kontakt The Veil",
     "metaDescription": "Ta kontakt med The Veil — spørsmål, dataforespørsler, juridiske henvendelser.",
     "heading": "Kontakt",
-    "intro": "Send oss en melding, så svarer vi deg. For personvernforespørsler (eksport, sletting, retting) velger du riktig kategori slik at den havner i rett innboks.",
+    "intro": "Send oss en melding, og vi vil komme tilbake til deg. For personvernforespørsler (eksport, sletting, retting) merker du av riktig kategori slik at den havner i rett innboks.",
     "fields": {
       "name": "Navn",
       "email": "E-post",
@@ -11,7 +11,7 @@
       "message": "Melding"
     },
     "placeholders": {
-      "name": "Navnet ditt",
+      "name": "Ditt navn",
       "email": "deg@eksempel.no",
       "message": "Fortell oss hva du tenker på."
     },
@@ -25,15 +25,15 @@
     },
     "submit": "Send melding",
     "submitting": "Sender…",
-    "success": "Takk — meldingen din er på vei. Vi svarer til e-postadressen du oppga.",
+    "success": "Takk — meldingen din er på vei. Svar sendes til e-postadressen du oppga.",
     "errorGeneric": "Noe gikk galt under sending av meldingen. Prøv igjen om et øyeblikk.",
     "errors": {
-      "nameRequired": "Skriv inn navnet ditt.",
+      "nameRequired": "Vennligst fyll ut navnet ditt.",
       "nameTooLong": "Navnet kan ikke være lengre enn 100 tegn.",
-      "emailRequired": "Skriv inn e-posten din.",
-      "emailInvalid": "Skriv inn en gyldig e-postadresse.",
-      "categoryRequired": "Velg en årsak.",
-      "messageRequired": "Skriv en melding.",
+      "emailRequired": "Vennligst fyll ut e-posten din.",
+      "emailInvalid": "Venligst fyll ut en gyldig e-postadresse.",
+      "categoryRequired": "Vennligst velg en årsak.",
+      "messageRequired": "Vennligst skriv en melding.",
       "messageTooShort": "Meldingen må være minst 10 tegn.",
       "messageTooLong": "Meldingen kan ikke være lengre enn 5000 tegn."
     }

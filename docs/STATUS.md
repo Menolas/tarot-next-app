@@ -1,6 +1,6 @@
 # The Veil — Status & Roadmap
 
-**Last updated:** 2026-08-07 · App scope only.
+**Last updated:** 2026-09-09 · App scope only.
 
 One line per item. Markers: 💻 code · 🎨 interface · 📋 no-code · 📣 growth.
 Detail lives in `docs/features/` and `CLAUDE.md`, never here.
@@ -46,7 +46,6 @@ Detail lives in `docs/features/` and `CLAUDE.md`, never here.
 - [ ] 📋 Apply the Russian translation proofread.
 - [ ] 📋 Apply the Ukrainian translation proofread.
 - [ ] 📋 Apply the Turkish translation proofread.
-- [ ] 📋 Apply the Norwegian translation proofread.
 - [ ] 📋 Translate the 78 card meanings — `docs/features/card-meanings.md`.
 - [ ] 📋 Pay a lawyer to read the terms and privacy pages.
 - [ ] 💻 Get the daily card email into Gmail's Primary tab — `docs/features/daily-card-email.md`.
@@ -75,6 +74,10 @@ Detail lives in `docs/features/` and `CLAUDE.md`, never here.
 
 <details open>
 <summary><b>✅ Done</b></summary>
+
+### 2026-09
+
+- 2026-09-09 · Applied the Norwegian proofread — 540 accepted rewrites across 11 message files, including the daily-card and reminder email copy.
 
 ### 2026-08
 

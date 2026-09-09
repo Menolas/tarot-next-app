@@ -2,12 +2,12 @@
   "seo": {
     "siteName": "The Veil",
     "home": {
-      "metaTitle": "Gratis tarotlesning — mystisk tarot-app på nett",
-      "metaDescription": "Avdekk mysteriene i din fremtid med vår mystiske tarot-app. Gratis daglige lesninger, flere kortstokker og personlige tarotlesere.",
-      "keywords": "tarot, gratis tarotlesning, tarot på nett, tarotkort, tarot-app, daglig tarot"
+      "metaTitle": "Gratis Tarotlesning — Mystikkfyllt Online Tarot-App",
+      "metaDescription": "Avdekk din fremtids mysterier med vår mystikkfylte tarotkortleser-app. Gratis daglige lesninger, flere kortstokker og personlige tarotlesere.",
+      "keywords": "tarot, gratis tarotlesning, online tarot, tarotkort, tarotleser-app, daglig tarot"
     },
     "decks": {
-      "metaTitle": "Velg din tarotkortstokk",
+      "metaTitle": "Velg Din Tarotkortstokk",
       "metaDescription": "Velg din favorittkortstokk — Rider-Waite, Klimt eller Gothic-Vintage. Hver stokk endrer den visuelle historien i din lesning.",
       "keywords": "tarotkortstokk, rider-waite, klimt tarot, gothic tarot, tarotkort"
     },
@@ -17,12 +17,12 @@
       "keywords": "tarot abonnement, ubegrensede tarotlesninger, premium tarot, tarot priser"
     },
     "profile": {
-      "metaTitle": "Din mystiske profil",
+      "metaTitle": "Din Mystiske Profil",
       "metaDescription": "Administrer kontoen, lesningene og preferansene dine."
     },
     "history": {
-      "metaTitle": "Din lesningshistorikk",
-      "metaDescription": "Se igjen hver tarotlesning du har trukket — kort, datoer og ordene Sløret ga deg."
+      "metaTitle": "Din Lesningshistorikk",
+      "metaDescription": "Se tilbake på hver tarotlesning du har trukket — kort, datoer og ordene The Veil ga deg."
     }
   }
 }
